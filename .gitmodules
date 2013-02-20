@@ -1,0 +1,3 @@
+[submodule "jquery-tools-1.0.js"]
+	path = jquery-tools-1.0.js
+	url = git://github.com/thaibault/jquery-tools

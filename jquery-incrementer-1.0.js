@@ -23,7 +23,7 @@
 
 /// standalone ;(function(jQuery) {
 ;window.require(
-    [['jQuery.Tools', 'library/jquery-tools-1.0'],
+    [['jQuery.Tools', 'jquery-tools-1.0'],
 
      ['jQuery.ui', 'jquery-ui-1.9.2/jquery.ui.core']],
     function(jQuery) {

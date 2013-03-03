@@ -1,9 +1,9 @@
 /// require
 
-// region header
+ // region header
 
 /*!
-    jQuery plugin for "jquery-1.8.3".
+    jQuery plugin for "jquery-1.9.1".
 
     Copyright see require on https://github.com/thaibault/require
 
@@ -12,9 +12,9 @@
     @author t.sickert@gmail.com (Torben Sickert)
     @version 1.0 stable
     @requires require-1.0+
-              jquery-1.8.3+
+              jquery-1.9.1+
               jquery-tools-1.0+
-              jquery-ui-1.9.2+
+              jquery-ui-1.10.1+
     @fileOverview
     This plugin extends an html input field which serves a number to be given.
     Handling validation and easy incrementing or decrementing of
@@ -25,7 +25,7 @@
 ;window.require(
     [['jQuery.Tools', 'jquery-tools-1.0'],
 
-     ['jQuery.ui', 'jquery-ui-1.9.2/jquery.ui.core']],
+     ['jQuery.ui', 'jquery-ui-1.10.1']],
     function(jQuery) {
 ///
 

@@ -22,10 +22,10 @@
 ###
 
 ## standalone ((jQuery) ->
-this.require(
-    [['jQuery.Tools', 'jquery-tools-1.0.coffee'],
+this.require([
+    ['jQuery.Tools', 'jquery-tools-1.0.coffee'],
 
-     ['jQuery.ui', 'jquery-ui-1.10.1']],
+    ['jQuery.ui', 'jquery-ui-1.10.1']],
 (jQuery) ->
 ##
 

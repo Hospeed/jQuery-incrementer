@@ -82,7 +82,7 @@ this.require([
 
     # region public methods
 
-        # region special methods
+        # region special metho ds
 
         initialize: (options={}) ->
             super options
@@ -103,7 +103,7 @@ this.require([
                 keydown: this.getMethod this._preventOtherThanNumberInput
                 keyup: this.getMethod this._onChangeInput
                 change: this.getMethod this._onChangeInput)
-            return this
+            this
 
         # endregion
 
@@ -116,17 +116,18 @@ this.require([
         _preventOtherThanNumberInput: (thisFunction, event) ->
             # Allow only backspace, delete, left, right, minus or number.
             if(jQuery.inArray(
-                   event.keyCode,
-                   [jQuery.ui.keyCode.BACKSPACE,
-                    jQuery.ui.keyCode.DELETE,
-                    jQuery.ui.keyCode.LEFT,
-                    jQuery.ui.keyCode.RIGHT,
-                    jQuery.ui.keyCode.NUMPAD_SUBTRACT]
-               ) is -1 and (event.keyCode < 48 or event.keyCode > 57) and
-               (event.keyCode < 96 or event.keyCode > 105))
+                event.keyCode,
+                [jQuery.ui.keyCode.BACKSPACE,
+                 jQuery.ui.keyCode.DELETE,
+                 jQuery.ui.keyCode.LEFT,
+                 jQuery.ui.keyCode.RIGHT,
+                 jQuery.ui.keyCode.NUMPAD_SUBTRACT]) is -1 and
+               (event.keyCode < 48 or event.keyCode > 57) and
+               (event.keyCode < 96 or event.keyCode > 105)
+            )
                 this.fireEvent 'typeInvalidLetter', false, this, event
                 event.preventDefault()
-            return this
+            this
 
         _onClick: (thisFunction, event) ->
             currentValue = window.parseInt this._domNode.val()
@@ -145,7 +146,7 @@ this.require([
                 this._domNode.val newValue
             else
                 this.fireEvent 'invalidNumber', false, this, event
-            return this
+            this
 
         _onChangeInput: (thisFunction, event) ->
             target = jQuery event.target
@@ -157,7 +158,7 @@ this.require([
             else if value < this._options.min
                 this._onInvalidNumber event, value
                 target.val this._options.min
-            return this
+            this
 
         _onTypeInvalidLetter: (event, value=null) ->
             typedCharInfo = ''
@@ -165,7 +166,6 @@ this.require([
             if event.keyCode and character.match(/^\w| $/)
                 typedCharInfo = " (you typed \"#{character}\")"
             this.log "Please type a number#{typedCharInfo}."
-            return this
 
         _onInvalidNumber: (event, value=null) ->
             typedCharInfo = ''
@@ -177,7 +177,6 @@ this.require([
             this.log(
                 "Please type a number between \"#{this._options.min}\" and " +
                 "\"#{this._options.max}\"#{typedCharInfo}.")
-            return this
 
         # endregion
 
@@ -187,7 +186,7 @@ this.require([
     jQuery.fn.Incrementer = ->
         self = new Incrementer this
         self._controller.apply self, arguments
-        return this
+        this
     ###* @ignore ###
     jQuery.Incrementer = Incrementer
 

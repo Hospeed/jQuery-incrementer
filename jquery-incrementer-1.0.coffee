@@ -69,12 +69,14 @@ this.require([
                 plus: 'a.plus'
                 minus: 'a.minus'
         _domNodes: {}
-        _neededHtml: '<a href="#" class="plus">' +
-                         '<div class="ui-icon plus">plus</div>' +
-                     '</a>' +
-                     '<a href="#" class="minus">' +
-                         '<div class="ui-icon minus">minus</div>' +
-                     '</a>'
+        _neededHtml: """
+                         <a href="#" class="plus">
+                             <div class="ui-icon plus">plus</div>
+                         </a>
+                         <a href="#" class="minus">
+                             <div class="ui-icon minus">minus</div>
+                         </a>
+                     """
 
     # endregion
 

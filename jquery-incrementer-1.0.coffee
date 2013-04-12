@@ -21,7 +21,8 @@
     given value is provided.
 ###
 
-## standalone ((jQuery) ->
+## standalone
+## ((jQuery) ->
 this.require([
     ['jQuery.Tools', 'jquery-tools-1.0.coffee'],
 

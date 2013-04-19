@@ -1,4 +1,4 @@
-jquery-incrementer
+jQuery-incrementer
 ==================
 
 This plugin extends an html input field which serves a number to be given.

@@ -8,4 +8,4 @@ provided.
 Examples:
 --------
 
-    TODO
+    jQuery('body form input.number').incrementer();

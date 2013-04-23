@@ -16,9 +16,13 @@
         <script type="text/javascript" src="javaScript/jquery-scrollTo-1.4.3.1.js"></script>
         <script type="text/javascript">
             jQuery(function(jQuery) {
-                jQuery('body div.toc a[href^="#"]').click(function(event) {
-                    event.preventDefault();
+                jQuery('body div.toc a[href^="#"]').click(function() {
                     jQuery.scrollTo(jQuery(this).attr('href'), 'slow');
+                });
+                jQuery('body a[href="#legal-notice"]').click(function() {
+                    jQuery('body section#main_content').fadeOut('slow', function() {
+                        jQuery('body section#legal-notice').fadeIn('slow');
+                    });
                 });
             });
         </script>
@@ -47,6 +51,15 @@
                 <p>This plugin extends an html input field which serves a number to be given.
                 Handling validation and easy incrementing or decrementing of given value is
                 provided.</p>
+                <h2 id="examples">Examples:</h2>
+                <pre><code>TODO
+                </code></pre>
+            </section>
+            <section id="legal-notice" class="legal-notice">
+                <p>
+                    Torben Sickert
+                    ...
+                </p>
             </section>
         </div>
 
@@ -57,6 +70,7 @@
                 <p class="copyright">
                     jQuery-incrementer maintained by <a href="https://github.com/thaibault">thaibault</a>
                 </p>
+                <a href="#legal-notice">legal notice</a>
             </footer>
         </div>
         

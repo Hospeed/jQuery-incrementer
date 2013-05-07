@@ -11,10 +11,6 @@
 
     @author t.sickert@gmail.com (Torben Sickert)
     @version 1.0 stable
-    @requires require-1.0+
-              jquery-1.9.1+
-              jquery-tools-1.0+
-              jquery-ui-1.10.1+
     @fileOverview
     This plugin extends an html input field which serves a number to be given.
     Handling validation and easy incrementing or decrementing of

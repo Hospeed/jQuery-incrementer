@@ -1,5 +1,14 @@
 ## require
 
+# region vim modline
+
+# vim: set tabstop=4 shiftwidth=4 expandtab:
+# vim: foldmethod=marker foldmarker=region,endregion:
+
+# endregion
+
+## require
+
 # region header
 
 # Copyright Torben Sickert 16.12.2012
@@ -8,9 +17,6 @@
 #    This library written by Torben Sickert stand under a creative commons
 #    naming 3.0 unported license.
 #    see http://creativecommons.org/licenses/by/3.0/deed.de
-
-# vim: set tabstop=4 shiftwidth=4 expandtab:
-# vim: foldmethod=marker foldmarker=region,endregion:
 
 ###!
     jQuery plugin for "jquery-1.9.1".

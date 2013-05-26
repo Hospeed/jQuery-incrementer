@@ -38,13 +38,13 @@ endregion -->
 <!-- region header -->
 
     <head>
-        <title>require</title>
+        <title>jQuery-incrementer</title>
 
     <!-- region meta informations -->
 
         <meta charset='utf-8' />
         <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-        <meta name="description" content="This native javaScript module provides a full featured import mechanism like python, php, c++ etc." />
+        <meta name="description" content="This plugin extends an html input field which serves a number to be given. Handling validation and easy incrementing or decrementing of given value is provided." />
 
     <!-- endregion -->
 
@@ -66,7 +66,7 @@ endregion -->
         
         
         <script type="text/javascript">
-            window.OPTIONS = {'trackingCode': 'UA-40282906-1', 'logging': true};
+            window.OPTIONS = {'trackingCode': 'UA-40271481-1', 'logging': true};
         </script>
         
 
@@ -201,7 +201,7 @@ body.documentation .icon-white,body.documentation .nav-pills>.active>a>[class^="
 body.documentation .icon-arrow-left{background-position:-240px -96px;}
 body.documentation .icon-arrow-home{margin-right:10px;margin-top:12px;float:left;}
 body.documentation header h1 a,body.documentation header h2 a{color:#fff;}
-body.documentation a[href="#top"]{position:fixed;z-index:4;bottom:35px;right:30px;}
+body.documentation a[href="#top"]{position:fixed;z-index:4;bottom:35px;right:45px;}
 body.documentation div.window-loading-cover{background-color:white;position:fixed;height:100%;width:100%;z-index:20;}body.documentation div.window-loading-cover div{position:absolute;top:50%;left:50%;background-color:#1b1b1b;}
 body.documentation section.imprint p{margin-bottom:45px;}
 body.documentation section.imprint a[href="#"]{float:left;margin-top:7px;}
@@ -14099,6 +14099,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
         addtionalPageLoadingTimeInMilliseconds: 0,
         mediaQueryCssIndicatorStyleType: 'border-left-style',
         trackingCode: 'UA-0-0',
+        scrollInLinearTime: false,
         mediaQueryCssIndicator: {
           desktop: 'dashed',
           tablet: 'solid',
@@ -14440,19 +14441,29 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
         if (onAfter == null) {
           onAfter = jQuery.noop();
         }
-        distanceToTop = this._domNodes.window.scrollTop();
-        menuHeight = this._domNodes.topDomNode.find('div.navbar').outerHeight();
-        distanceToScroll = distanceToTop + menuHeight;
-        if (distanceToTop < menuHeight) {
-          distanceToScroll = distanceToScroll + menuHeight - distanceToTop;
+        if (this._options.scrollInLinearTime) {
+          distanceToTop = this._domNodes.window.scrollTop();
+          menuHeight = this._domNodes.topDomNode.find('div.navbar').outerHeight();
+          distanceToScroll = distanceToTop + menuHeight;
+          if (distanceToTop < menuHeight) {
+            distanceToScroll = distanceToScroll + menuHeight - distanceToTop;
+          }
+          jQuery.scrollTo({
+            top: "-=" + distanceToScroll + "px",
+            left: '-=0'
+          }, {
+            duration: distanceToScroll,
+            onAfter: onAfter
+          });
+        } else {
+          jQuery.scrollTo({
+            top: 0,
+            left: 0
+          }, {
+            duration: 'slow',
+            onAfter: onAfter
+          });
         }
-        jQuery.scrollTo({
-          top: "-=" + distanceToScroll + "px",
-          left: '-=0'
-        }, {
-          duration: distanceToScroll,
-          onAfter: onAfter
-        });
         return this;
       };
 
@@ -16952,22 +16963,22 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 
         <div id="header_wrap" class="outer">
             <header class="inner">
-                <a class="start-up-animation-number-2" id="forkme_banner" href="https://github.com/thaibault/require">
+                <a class="start-up-animation-number-2" id="forkme_banner" href="https://github.com/thaibault/jQuery-incrementer">
                     View on GitHub
                 </a>
                 <h1 class="start-up-animation-number-3" id="project_title">
-                    <a href="http://thaibault.github.io/require">
-                        require
+                    <a href="http://thaibault.github.io/jQuery-incrementer">
+                        jQuery-incrementer
                     </a>
                 </h1>
                 <h2 class="start-up-animation-number-4" id="project_tagline">
-                    This native javaScript module provides a full featured import mechanism like python, php, c++ etc.
+                    This plugin extends an html input field which serves a number to be given. Handling validation and easy incrementing or decrementing of given value is provided.
                 </h2>
                 <section id="downloads">
-                    <a class="start-up-animation-number-6 zip_download_link" href="https://github.com/thaibault/require/zipball/master">
+                    <a class="start-up-animation-number-6 zip_download_link" href="https://github.com/thaibault/jQuery-incrementer/zipball/master">
                         Download this project as a .zip file
                     </a>
-                    <a class="start-up-animation-number-5 tar_download_link" href="https://github.com/thaibault/require/tarball/master">Download this project as a tar.gz file</a>
+                    <a class="start-up-animation-number-5 tar_download_link" href="https://github.com/thaibault/jQuery-incrementer/tarball/master">Download this project as a tar.gz file</a>
                 </section>
             </header>
         </div>
@@ -16982,48 +16993,32 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 
             <section id="main_content" class="inner start-up-animation-number-7">
                 <!-- region modline
-                
-                vim: set tabstop=4 shiftwidth=4 expandtab:
-                vim: foldmethod=marker foldmarker=region,endregion:
-                
-                endregion
-                
-                region header
-                
-                Copyright Torben Sickert 16.12.2012
-                
-                License
-                   This library written by Torben Sickert stand under a creative commons
-                   naming 3.0 unported license.
-                   see http://creativecommons.org/licenses/by/3.0/deed.de
-                
-                endregion -->
-                
-                <h1 id="require">require</h1>
-                <p>This native javaScript module provides a full featured import mechanism like
-                python, php, c++ etc.</p>
-                <p>Copyright</p>
-                <p>Torben Sickert 16.12.2012</p>
-                <p>License</p>
-                <p>require von Torben Sickert steht unter einer Creative Commons
-                Namensnennung 3.0 Unported Lizenz.</p>
-                <p>see http://creativecommons.org/licenses/by/3.0/deed.de</p>
-                <p>This class can be used as function for defining dependencies for
-                modules.
-                Note that this function searches in the same ressource as the first
-                javascript include tag in your markup if given dependency resource
-                doesn't start with "http://".
-                You can manually change this behavior by adding a search base via
-                "window.require.basePath".</p>
-                <p>Usage</p>
-                <pre><code>window.require([['jQuery', 'jquery-1.8.3']], function($) {
-                    $('div#id').show('slow');
-                });
-                
-                window.require([['jQuery', 'jquery-1.8.3'], 'less-1.3.3'], function($) {
-                    $('div#id').show('slow');
-                });
-                </code></pre>
+
+vim: set tabstop=4 shiftwidth=4 expandtab:
+vim: foldmethod=marker foldmarker=region,endregion:
+
+endregion
+
+region header
+
+Copyright Torben Sickert 16.12.2012
+
+License
+   This library written by Torben Sickert stand under a creative commons
+   naming 3.0 unported license.
+   see http://creativecommons.org/licenses/by/3.0/deed.de
+
+endregion -->
+
+<h1 id="jquery-incrementer">jQuery-incrementer</h1>
+<p>This plugin extends an html input field which serves a number to be given.
+Handling validation and easy incrementing or decrementing of given value is
+provided.</p>
+<h2 id="examples">Examples:</h2>
+<pre><code>jQuery('body form input.number').incrementer();
+
+jQuery('body form input.number').incrementer('logging': true);
+</code></pre>
             </section>
 
         <!-- endregion -->
@@ -17033,7 +17028,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
             <section class="imprint inner">
                 <h1>Imprint</h1>
                 <p>
-                    Anbieter von <a href="http://thaibault.github.io/require">http://thaibault.github.io/require</a>:
+                    Anbieter von <a href="http://thaibault.github.io/jQuery-incrementer">http://thaibault.github.io/jQuery-incrementer</a>:
                     <br />
                     Torben Sickert
                     <br />
@@ -17061,7 +17056,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
         <div id="footer_wrap" class="outer">
             <footer class="inner">
                 <p class="start-up-animation-number-8 copyright">
-                    require maintained by <a href="https://github.com/thaibault">thaibault</a> &middot; &copy; 2013 Torben Sickert, Inc. &middot; <a href="#imprint">imprint</a>
+                    jQuery-incrementer maintained by <a href="https://github.com/thaibault">thaibault</a> &middot; &copy; 2013 Torben Sickert, Inc. &middot; <a href="#imprint">imprint</a>
                 </p>
                 <p class="pull-right"><a href="#top">top</a></p>
             </footer>

@@ -29,4 +29,3 @@ Examples:
     jQuery('body form input.number').incrementer();
 
     jQuery('body form input.number').incrementer('logging': true);
-

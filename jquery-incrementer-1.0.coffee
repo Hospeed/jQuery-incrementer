@@ -7,7 +7,7 @@
 
 # endregion
 
-## require
+## standalone
 
 # region header
 

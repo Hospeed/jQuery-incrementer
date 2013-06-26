@@ -26,7 +26,7 @@ provided.
 Examples:
 --------
 
-    #!JavaScript
+    #!/usr/bin/env JavaScript
 
     jQuery('body form input.number').incrementer();
 

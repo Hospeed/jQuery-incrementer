@@ -105,8 +105,8 @@ this.require([
                     jQuery('<div>').addClass(
                         this.camelCaseStringToDelimited this.__name__)
                 ).after this._neededHtml
-            # Grap elements
-            this._domNodes = this.grapDomNodes this._options.domNodes
+            # Grab elements
+            this._domNodes = this.grabDomNodes this._options.domNodes
             # Attach events
             this.bind(
                 this._domNodes.plus.add(this._domNodes.minus), 'click',

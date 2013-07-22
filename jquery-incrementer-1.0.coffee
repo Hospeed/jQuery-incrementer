@@ -34,7 +34,7 @@
 ###
 
 ## standalone
-## ((jQuery) ->
+## do (jQuery) ->
 this.require([
     ['jQuery.Tools', 'jquery-tools-1.0.coffee'],
 
@@ -95,7 +95,7 @@ this.require([
 
     # region public methods
 
-        # region special metho ds
+        # region special methods
 
         initialize: (options={}) ->
             super options
@@ -116,6 +116,7 @@ this.require([
                 keydown: this.getMethod this._preventOtherThanNumberInput
                 keyup: this.getMethod this._onChangeInput
                 change: this.getMethod this._onChangeInput)
+            throw 'TEST'
             this
 
         # endregion
@@ -205,5 +206,5 @@ this.require([
 
 # endregion
 
-## standalone ).call this, this.jQuery
+## standalone
 )

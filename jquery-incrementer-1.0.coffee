@@ -115,8 +115,7 @@ this.require([
             this.bind(this._domNode,
                 keydown: this.getMethod this._preventOtherThanNumberInput
                 keyup: this.getMethod this._onChangeInput
-                change: this.getMethod this._onChangeInput)
-            throw 'TEST'
+            change: this.getMethod this._onChangeInput)
             this
 
         # endregion

@@ -7,8 +7,6 @@
 
 # endregion
 
-## standalone
-
 # region header
 
 # Copyright Torben Sickert 16.12.2012
@@ -38,7 +36,7 @@
 this.require([
     ['jQuery.Tools', 'jquery-tools-1.0.coffee'],
 
-    ['jQuery.ui', 'jquery-ui-1.10.1']],
+    ['jQuery.ui', 'jquery-ui-1.10.3']],
 (jQuery) ->
 ##
 

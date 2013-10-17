@@ -30,12 +30,12 @@
 ###
 
 ## standalone
-## do (jQuery) ->
+## do ($=jQuery) ->
 this.require([
     ['jQuery.Tools', 'jquery-tools-1.0.coffee'],
 
     ['jQuery.ui', 'jquery-ui-1.10.3']],
-(jQuery) ->
+($) ->
 ##
 
 # endregion
@@ -43,14 +43,14 @@ this.require([
 # region plugins/classes
 
     ###*
-        @memberOf jQuery
+        @memberOf $
         @class
-        @extends jQuery.Tools
+        @extends $.Tools
 
         @param {DomNode} domNode The dom object from where where the plugin
                                  starts to do it's magic.
     ###
-    class Incrementer extends jQuery.Tools.class
+    class Incrementer extends $.Tools.class
 
     # region private properties
 
@@ -98,7 +98,7 @@ this.require([
             # Generate needed html.
             if this._options.generateNeededHtml
                 this._domNode.wrap(
-                    jQuery('<div>').addClass(
+                    $('<div>').addClass(
                         this.camelCaseStringToDelimited this.__name__)
                 ).after this._neededHtml
             # Grab elements
@@ -124,13 +124,13 @@ this.require([
 
         _preventOtherThanNumberInput: (thisFunction, event) ->
             # Allow only backspace, delete, left, right, minus or number.
-            if(jQuery.inArray(
+            if($.inArray(
                 event.keyCode,
-                [jQuery.ui.keyCode.BACKSPACE,
-                 jQuery.ui.keyCode.DELETE,
-                 jQuery.ui.keyCode.LEFT,
-                 jQuery.ui.keyCode.RIGHT,
-                 jQuery.ui.keyCode.NUMPAD_SUBTRACT]) is -1 and
+                [$.ui.keyCode.BACKSPACE,
+                 $.ui.keyCode.DELETE,
+                 $.ui.keyCode.LEFT,
+                 $.ui.keyCode.RIGHT,
+                 $.ui.keyCode.NUMPAD_SUBTRACT]) is -1 and
                (event.keyCode < 48 or event.keyCode > 57) and
                (event.keyCode < 96 or event.keyCode > 105)
             )
@@ -158,7 +158,7 @@ this.require([
             this
 
         _onChangeInput: (thisFunction, event) ->
-            target = jQuery event.target
+            target = $ event.target
             value = window.parseInt(target.val(target.val()
                 .replace(/[^0-9]+/g, '')).val())
             if value > this._options.max
@@ -192,12 +192,12 @@ this.require([
     # endregion
 
     ###* @ignore ###
-    jQuery.fn.Incrementer = ->
+    $.fn.Incrementer = ->
         self = new Incrementer this
         self._controller.apply self, arguments
         this
     ###* @ignore ###
-    jQuery.Incrementer = Incrementer
+    $.Incrementer = Incrementer
 
 # endregion
 

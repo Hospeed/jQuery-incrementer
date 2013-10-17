@@ -52,13 +52,7 @@ this.require([
     ###
     class Incrementer extends $.Tools.class
 
-    # region private properties
-
-        __name__: 'Incrementer'
-
-    # endregion
-
-    # region protected properties
+    # region properties
 
         ###*
             Saves default options for manipulating the Gui's behaviour.
@@ -66,10 +60,10 @@ this.require([
             @property {Object}
         ###
         _options:
-            onInvalidNumber: ->
-            onTypeInvalidLetter: ->
-            logging: false
             domNodeSelectorPrefix: 'body form div.{1}'
+            onInvalidNumber: $.noop()
+            onTypeInvalidLetter: $.noop()
+            logging: false
             generateNeededHtml: true
             step: 1
             min: 0
@@ -86,12 +80,13 @@ this.require([
                              <div class="ui-icon minus">minus</div>
                          </a>
                      """
+        __name__: 'Incrementer'
 
     # endregion
 
     # region public methods
 
-        # region special methods
+        # region special
 
         initialize: (options={}) ->
             super options
@@ -120,7 +115,7 @@ this.require([
 
     # region protected methods
 
-        # region event methods
+        # region event
 
         _preventOtherThanNumberInput: (thisFunction, event) ->
             # Allow only backspace, delete, left, right, minus or number.

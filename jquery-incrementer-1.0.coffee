@@ -72,7 +72,6 @@ this.require([
             domNodes:
                 plus: 'a.plus'
                 minus: 'a.minus'
-        _domNodes: {}
         _neededHtml: """
                          <a href="#" class="plus">
                              <div class="ui-icon plus">plus</div>

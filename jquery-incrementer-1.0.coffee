@@ -32,9 +32,10 @@
 ## standalone
 ## do ($=this.jQuery) ->
 this.require([
-    ['jQuery.Tools', 'jquery-tools-1.0.coffee'],
+    ['jQuery', 'jquery-2.0.3']
+    ['jQuery.ui', 'jquery-ui-1.10.3']
 
-    ['jQuery.ui', 'jquery-ui-1.10.3']],
+    ['jQuery.Tools', 'jquery-tools-1.0.coffee']]
 ($) ->
 ##
 
@@ -73,7 +74,6 @@ this.require([
             domNodes:
                 plus: 'a.plus'
                 minus: 'a.minus'
-        _domNodes: {}
         _neededHtml: """
                          <a href="#" class="plus">
                              <div class="ui-icon plus">plus</div>

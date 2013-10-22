@@ -32,14 +32,15 @@
 ## standalone
 ## do ($=this.jQuery) ->
 this.require([
-    ['jQuery', 'jquery-2.0.3']
-    ['jQuery.ui', 'jquery-ui-1.10.3']
+    ['jQuery.Tools', 'jquery-tools-1.0.coffee'],
 
-    ['jQuery.Tools', 'jquery-tools-1.0.coffee']]
+    ['jQuery.ui', 'jquery-ui-1.10.3']],
 ($) ->
 ##
 
 # endregion
+
+# TODO document methods.
 
 # region plugins/classes
 
@@ -72,6 +73,7 @@ this.require([
             domNodes:
                 plus: 'a.plus'
                 minus: 'a.minus'
+        _domNodes: {}
         _neededHtml: """
                          <a href="#" class="plus">
                              <div class="ui-icon plus">plus</div>

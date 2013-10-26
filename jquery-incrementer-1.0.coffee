@@ -74,6 +74,12 @@ this.require([
             domNodes:
                 plus: 'a.plus'
                 minus: 'a.minus'
+        ###*
+            Saves the generic needed markup to display an increment and
+            decrement button.
+
+            @property {String}
+        ###
         _neededHtml: """
                          <a href="#" class="plus">
                              <div class="ui-icon plus">plus</div>
@@ -82,6 +88,11 @@ this.require([
                              <div class="ui-icon minus">minus</div>
                          </a>
                      """
+        ###*
+            Saves the class name for introspection.
+
+            @property {String}
+        ###
         __name__: 'Incrementer'
 
     # endregion

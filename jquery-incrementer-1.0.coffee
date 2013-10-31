@@ -41,8 +41,6 @@ this.require([
 
 # endregion
 
-# TODO document methods.
-
 # region plugins/classes
 
     ###*
@@ -71,7 +69,7 @@ this.require([
             step: 1
             min: 0
             max: 9999
-            domNodes:
+            domNode:
                 plus: 'a.plus'
                 minus: 'a.minus'
         ###*
@@ -110,10 +108,10 @@ this.require([
                         this.camelCaseStringToDelimited this.__name__)
                 ).after this._neededHtml
             # Grab elements
-            this._domNodes = this.grabDomNodes this._options.domNodes
+            this.$domNode = this.grabDomNode this._options.domNode
             # Attach events
             this.bind(
-                this._domNodes.plus.add(this._domNodes.minus), 'click',
+                this.$domNode.plus.add(this.$domNode.minus), 'click',
                 this.getMethod this._onClick)
             # Prevent number field from typing symbols other than numbers.
             this.bind(this._domNode,
@@ -150,8 +148,8 @@ this.require([
             currentValue = window.parseInt this._domNode.val()
             currentValue = 0 if not currentValue
             plus = (
-                event.target is this._domNodes.plus[0] or
-                this._domNodes.plus.children().filter(
+                event.target is this.$domNode.plus[0] or
+                this.$domNode.plus.children().filter(
                     event.target
                 ).length)
             if (not plus and
@@ -182,7 +180,7 @@ this.require([
             character = String.fromCharCode event.keyCode
             if event.keyCode and character.match(/^\w| $/)
                 typedCharInfo = " (you typed \"#{character}\")"
-            this.log "Please type a number#{typedCharInfo}."
+            this.info "Please type a number#{typedCharInfo}."
 
         _onInvalidNumber: (event, value=null) ->
             typedCharInfo = ''
@@ -191,7 +189,7 @@ this.require([
                 typedCharInfo = " (you typed \"#{value}\")."
             else if event.keyCode and character.match(/^\w| $/)
                 typedCharInfo = " (you typed \"#{character}\")"
-            this.log(
+            this.info(
                 "Please type a number between \"#{this._options.min}\" and " +
                 "\"#{this._options.max}\"#{typedCharInfo}.")
 
@@ -200,12 +198,7 @@ this.require([
     # endregion
 
     ###* @ignore ###
-    $.fn.Incrementer = ->
-        self = new Incrementer this
-        self._controller.apply self, arguments
-        this
-    ###* @ignore ###
-    $.Incrementer = Incrementer
+    $.fn.Incrementer = -> $.Tools()._controller Incrementer, arguments, this
 
 # endregion
 

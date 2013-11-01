@@ -28,6 +28,8 @@ Example:
 
 <!--showExample: html-->
 
+    #!/usr/bin/env browser
+
     <script type="text/javascript" src="distributionBundle/jquery-2.0.3.js"></script>
     <script type="text/javascript" src="distributionBundle/jquery-tools-1.0.js"></script>
     <script type="text/javascript" src="distributionBundle/jquery-incrementer-1.0.js"></script>

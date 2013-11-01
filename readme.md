@@ -30,9 +30,9 @@ Examples:
 $('input').Incrementer();
 ```
 
-<script type="text/javascript" src="distributionBundle/jQuery-2.0.3.js"></script>
-<script type="text/javascript" src="distributionBundle/jQuery-tools-1.0.js"></script>
-<script type="text/javascript" src="distributionBundle/jQuery-incrementer-1.0.js"></script>
+<script type="text/javascript" src="distributionBundle/jquery-2.0.3.js"></script>
+<script type="text/javascript" src="distributionBundle/jquery-tools-1.0.js"></script>
+<script type="text/javascript" src="distributionBundle/jquery-incrementer-1.0.js"></script>
 <input type="text"></input>
 <script type="text/javascript">
     $('input').Incrementer();

@@ -27,7 +27,7 @@ Examples:
 ---------
 
 ```javaScript
-$('input').Incrementer();
+$('body > form > input').Incrementer({logging: true});
 ```
 
 <script type="text/javascript" src="distributionBundle/jquery-2.0.3.js"></script>
@@ -37,5 +37,5 @@ $('input').Incrementer();
     <input type="text" name="test" value="" />
 </form>
 <script type="text/javascript">
-    $('input').Incrementer();
+    $('body form input').Incrementer({logging: true});
 </script>

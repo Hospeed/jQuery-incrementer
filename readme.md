@@ -26,7 +26,7 @@ provided.
 Examples:
 ---------
 
-```javaScript
+```JavaScript
 $('body > form > input').Incrementer({logging: true});
 ```
 

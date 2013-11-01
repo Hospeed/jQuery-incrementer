@@ -128,6 +128,7 @@
 
       Incrementer.prototype._onClick = function(thisFunction, event) {
         var currentValue, newValue, plus;
+        event.preventDefault();
         currentValue = window.parseInt(this.$domNode.val());
         if (!currentValue) {
           currentValue = 0;

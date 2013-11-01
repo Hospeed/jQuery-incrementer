@@ -152,6 +152,7 @@ this.require [['jQuery.Tools', 'jquery-tools-1.0.coffee']], ($) ->
             @returns {$.Incrementer} Returns the current instance.
         ###
         _onClick: (thisFunction, event) ->
+            event.preventDefault()
             currentValue = window.parseInt this.$domNode.val()
             currentValue = 0 if not currentValue
             plus = (

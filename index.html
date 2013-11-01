@@ -140,15 +140,21 @@
  8
  9
 10
-11</pre></div></td><td class=code><div class=codehilite><pre><span class="err">#</span><span class="o">!/</span><span class="nx">usr</span><span class="p">/</span><span class="nx">bin</span><span class="p">/</span><span class="nb">env</span> <span class="nx">browser</span>
-
-<span class="o">&lt;</span><span class="nb">script</span> <span class="k">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;distributionBundle/jquery-2.0.3.js&quot;</span><span class="o">&gt;&lt;/</span><span class="nb">script</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nb">script</span> <span class="k">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;distributionBundle/jquery-tools-1.0.js&quot;</span><span class="o">&gt;&lt;/</span><span class="nb">script</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nb">script</span> <span class="k">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;distributionBundle/jquery-incrementer-1.0.js&quot;</span><span class="o">&gt;&lt;/</span><span class="nb">script</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nb">form</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;get&quot;</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nb">input</span> <span class="k">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;test&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;4&quot;</span> <span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="nb">form</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nb">script</span> <span class="k">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
-    <span class="err">$</span><span class="p">(</span><span class="s1">&#39;body form input&#39;</span><span class="p">)</span><span class="bp">.</span><span class="nx">Incrementer</span><span class="p">({</span><span class="nx">logging</span><span class="p">:</span> <span class="kc">true</span><span class="p">});</span>
-<span class="o">&lt;/</span><span class="nb">script</span><span class="o">&gt;</span>
+11
+12
+13
+14</pre></div></td><td class=code><div class=codehilite><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;distributionBundle/jquery-2.0.3.js&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span>
+        <span class="na">src=</span><span class="s">&quot;distributionBundle/jquery-tools-1.0.js&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span>
+        <span class="na">src=</span><span class="s">&quot;distributionBundle/jquery-incrementer-1.0.js&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">&quot;get&quot;</span> <span class="na">action=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;test&quot;</span> <span class="na">value=</span><span class="s">&quot;4&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body form input&#39;</span><span class="p">).</span><span class="nx">Incrementer</span><span class="p">({</span><span class="nx">logging</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
 </pre></div></td></tr></table></section><!-- endregion --><!-- region about this website --><section class="about-this-website inner"><h1>About this website <!--deDE:Impressum--><!--frFR:Mentions légales--></h1><p>Provider of <!--deDE:Anbieter von --><!--frFR:Fournisseur de --><a href="//thaibault.github.io/jQuery-incrementer">http://thaibault.github.io/jQuery-incrementer</a>:<br/>Torben Sickert<br/>Christoph-Mang-Str. 14<br/>79100 Freiburg<br/>Tel. 0049 (0) 176 / 10248185<br/>Email: <a href="mailto:t.sickert@gmail.com">t.sickert@gmail.com</a><br/>Website: <!--deDE:Webseite:--><!--frFR:Site:--><a href="//thaibault.github.io/website">http://thaibault.github.io/website</a><br/><span class="glyphicon glyphicon-arrow-left arrow-left-home"></span><a href="#home">home<!--deDE:Startseite--><!--frFR:Maison--></a></p></section></div><!-- endregion --><!-- endregion --><!-- region footer --><div class="footer-wrap outer"><footer class=inner><p class="start-up-animation-number-11 copyright">jQuery-incrementer maintained by <!--deDE:jQuery-incrementer betrieben von --><!--frFR:jQuery-incrementer exploité par --><a href="//github.com/thaibault">thaibault</a> &middot; &copy; 2013 Torben Sickert, Inc. &middot; <a href="#about-this-website">about this website<!--deDE:Impressum--><!--frFR:Mentions légales--></a></p></footer></div><!-- endregion --><a href="#top">top</a></body><!-- endregion --></html>

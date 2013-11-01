@@ -26,15 +26,14 @@ provided.
 Example:
 --------
 
-<!--showExample-->
-```html
-<script type="text/javascript" src="distributionBundle/jquery-2.0.3.js"></script>
-<script type="text/javascript" src="distributionBundle/jquery-tools-1.0.js"></script>
-<script type="text/javascript" src="distributionBundle/jquery-incrementer-1.0.js"></script>
-<form method="get" action="#">
-    <input type="text" name="test" value="4" />
-</form>
-<script type="text/javascript">
-    $('body form input').Incrementer({logging: true});
-</script>
-```
+<!--showExample: html-->
+
+    <script type="text/javascript" src="distributionBundle/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="distributionBundle/jquery-tools-1.0.js"></script>
+    <script type="text/javascript" src="distributionBundle/jquery-incrementer-1.0.js"></script>
+    <form method="get" action="#">
+        <input type="text" name="test" value="4" />
+    </form>
+    <script type="text/javascript">
+        $('body form input').Incrementer({logging: true});
+    </script>

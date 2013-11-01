@@ -23,8 +23,8 @@ This plugin extends an html input field which serves a number to be given.
 Handling validation and easy incrementing or decrementing of given value is
 provided.
 
-Examples:
----------
+Example:
+--------
 
 ```html
 <script type="text/javascript" src="distributionBundle/jquery-2.0.3.js"></script>

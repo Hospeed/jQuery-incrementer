@@ -237,7 +237,7 @@ this.require([
     # endregion
 
     ###* @ignore ###
-    $.fn.Incrementer = -> $.Tools()._controller Incrementer, arguments, this
+    $.fn.Incrementer = -> $.Tools().controller Incrementer, arguments, this
 
 # endregion
 

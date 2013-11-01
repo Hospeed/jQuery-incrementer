@@ -222,7 +222,7 @@
     /** @ignore*/
 
     return $.fn.Incrementer = function() {
-      return $.Tools()._controller(Incrementer, arguments, this);
+      return $.Tools().controller(Incrementer, arguments, this);
     };
   })(this.jQuery);
 

@@ -29,15 +29,8 @@
     given value is provided.
 ###
 
-## standalone
-## do ($=this.jQuery) ->
-this.require([
-    ['jQuery', 'jquery-2.0.3']
-    ['jQuery.ui', 'jquery-ui-1.10.3']
-
-    ['jQuery.Tools', 'jquery-tools-1.0.coffee']]
-($) ->
-##
+## standalone do ($=this.jQuery) ->
+this.require [['jQuery.Tools', 'jquery-tools-1.0.coffee']], ($) ->
 
 # endregion
 
@@ -103,12 +96,13 @@ this.require([
                 this.$domNode.wrap(
                     $('<div>').addClass(
                         this.camelCaseStringToDelimited this.__name__)
-                ).after this.neededMarkup
+                ).after this._options.neededMarkup
             # Grab elements
-            this.$domNode = this.grabDomNode this._options.domNode
+            # TODO rename $domNode to $domNodes
+            this.$domNodes = this.grabDomNode this._options.domNode
             # Attach events
             this.on(
-                this.$domNode.plus.add(this.$domNode.minus), 'click',
+                this.$domNodes.plus.add(this.$domNodes.minus), 'click',
                 this.getMethod this._onClick)
             # Prevent number field from typing symbols other than numbers.
             this.on(
@@ -127,7 +121,7 @@ this.require([
         # region event
 
         ###*
-            @description This method triggeres if a "keydown" event occurs.
+            @description This method triggers if a "keydown" event occurs.
                          This callback grantees that only numeric input comes
                          into given dom node.
 
@@ -138,16 +132,13 @@ this.require([
         ###
         _preventOtherThanNumberInput: (thisFunction, event) ->
             # Allow only backspace, delete, left, right, minus or number.
-            if($.inArray(
+            if $.inArray(
                 event.keyCode,
-                [$.ui.keyCode.BACKSPACE,
-                 $.ui.keyCode.DELETE,
-                 $.ui.keyCode.LEFT,
-                 $.ui.keyCode.RIGHT,
-                 $.ui.keyCode.NUMPAD_SUBTRACT]) is -1 and
-               (event.keyCode < 48 or event.keyCode > 57) and
-               (event.keyCode < 96 or event.keyCode > 105)
-            )
+                [this.keyCode.BACKSPACE, this.keyCode.DELETE
+                 this.keyCode.LEFT, this.keyCode.RIGHT
+                 this.keyCode.NUMPAD_SUBTRACT]
+            ) is -1 and (event.keyCode < 48 or event.keyCode > 57) and
+                        (event.keyCode < 96 or event.keyCode > 105)
                 this.fireEvent 'typeInvalidLetter', false, this, event
                 event.preventDefault()
             this
@@ -164,8 +155,8 @@ this.require([
             currentValue = window.parseInt this.$domNode.val()
             currentValue = 0 if not currentValue
             plus = (
-                event.target is this.$domNode.plus[0] or
-                this.$domNode.plus.children().filter(
+                event.target is this.$domNodes.plus[0] or
+                this.$domNodes.plus.children().filter(
                     event.target
                 ).length)
             if (not plus and
@@ -236,10 +227,11 @@ this.require([
 
     # endregion
 
+    # region handle $ extending
+
     ###* @ignore ###
     $.fn.Incrementer = -> $.Tools().controller Incrementer, arguments, this
 
-# endregion
+    # endregion
 
-## standalone
-)
+# endregion

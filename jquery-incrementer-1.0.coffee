@@ -65,27 +65,16 @@ this.require([
             onInvalidNumber: $.noop()
             onTypeInvalidLetter: $.noop()
             logging: false
-            generateNeededHtml: true
             step: 1
             min: 0
             max: 9999
             domNode:
                 plus: 'a.plus'
                 minus: 'a.minus'
-        ###*
-            Saves the generic needed markup to display an increment and
-            decrement button.
-
-            @property {String}
-        ###
-        _neededHtml: """
-                         <a href="#" class="plus">
-                             <div class="ui-icon plus">plus</div>
-                         </a>
-                         <a href="#" class="minus">
-                             <div class="ui-icon minus">minus</div>
-                         </a>
-                     """
+            neededMarkup: """
+                <a href="#" class="plus">plus</a>
+                <a href="#" class="minus">minus</a>
+            """
         ###*
             Saves the class name for introspection.
 
@@ -99,22 +88,31 @@ this.require([
 
         # region special
 
+        ###*
+            @description Initializes the plugin. Later needed dom nodes are
+                         grabbed.
+
+            @param {Object} options An options object.
+
+            @returns {$.Incrementer} Returns the current instance.
+        ###
         initialize: (options={}) ->
             super options
             # Generate needed html.
-            if this._options.generateNeededHtml
-                this._domNode.wrap(
+            if this._options.neededMarkup
+                this.$domNode.wrap(
                     $('<div>').addClass(
                         this.camelCaseStringToDelimited this.__name__)
-                ).after this._neededHtml
+                ).after this.neededMarkup
             # Grab elements
             this.$domNode = this.grabDomNode this._options.domNode
             # Attach events
-            this.bind(
+            this.on(
                 this.$domNode.plus.add(this.$domNode.minus), 'click',
                 this.getMethod this._onClick)
             # Prevent number field from typing symbols other than numbers.
-            this.bind(this._domNode,
+            this.on(
+                this.$domNode,
                 keydown: this.getMethod this._preventOtherThanNumberInput
                 keyup: this.getMethod this._onChangeInput
                 change: this.getMethod this._onChangeInput)
@@ -128,6 +126,16 @@ this.require([
 
         # region event
 
+        ###*
+            @description This method triggeres if a "keydown" event occurs.
+                         This callback grantees that only numeric input comes
+                         into given dom node.
+
+            @param {Function} thisFunction this function itself
+            @param {Object} event the event object
+
+            @returns {$.Incrementer} Returns the current instance.
+        ###
         _preventOtherThanNumberInput: (thisFunction, event) ->
             # Allow only backspace, delete, left, right, minus or number.
             if($.inArray(
@@ -143,9 +151,17 @@ this.require([
                 this.fireEvent 'typeInvalidLetter', false, this, event
                 event.preventDefault()
             this
+        ###*
+            @description This method triggeres if a "click" event on increment
+                         or decrement buttons occurs.
 
+            @param {Function} thisFunction this function itself
+            @param {Object} event the event object
+
+            @returns {$.Incrementer} Returns the current instance.
+        ###
         _onClick: (thisFunction, event) ->
-            currentValue = window.parseInt this._domNode.val()
+            currentValue = window.parseInt this.$domNode.val()
             currentValue = 0 if not currentValue
             plus = (
                 event.target is this.$domNode.plus[0] or
@@ -158,11 +174,19 @@ this.require([
             )
                 newValue = currentValue - this._options.step
                 newValue = currentValue + this._options.step if plus
-                this._domNode.val newValue
+                this.$domNode.val newValue
             else
                 this.fireEvent 'invalidNumber', false, this, event
             this
+        ###*
+            @description This method triggeres if a "change" event on given dom
+                         node occurs.
 
+            @param {Function} thisFunction this function itself
+            @param {Object} event the event object
+
+            @returns {$.Incrementer} Returns the current instance.
+        ###
         _onChangeInput: (thisFunction, event) ->
             target = $ event.target
             value = window.parseInt(target.val(target.val()
@@ -174,15 +198,30 @@ this.require([
                 this._onInvalidNumber event, value
                 target.val this._options.min
             this
+        ###*
+            @description This method triggers if an invalid number was given
+                         via keyboard input.
 
-        _onTypeInvalidLetter: (event, value=null) ->
+            @param {Object} event the event object
+
+            @returns {$.Incrementer} Returns the current instance.
+        ###
+        _onTypeInvalidLetter: (event) ->
             typedCharInfo = ''
             character = String.fromCharCode event.keyCode
             if event.keyCode and character.match(/^\w| $/)
                 typedCharInfo = " (you typed \"#{character}\")"
             this.info "Please type a number#{typedCharInfo}."
+        ###*
+            @description This method is triggered if a "change" event on given
+                         dom node occurs.
 
-        _onInvalidNumber: (event, value=null) ->
+            @param {Object} event the event object
+            @param {String} value the invalid chars
+
+            @returns {$.Incrementer} Returns the current instance.
+        ###
+        _onInvalidNumber: (event, value='') ->
             typedCharInfo = ''
             character = String.fromCharCode event.keyCode
             if value

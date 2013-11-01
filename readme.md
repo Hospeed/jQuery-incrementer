@@ -24,10 +24,13 @@ Handling validation and easy incrementing or decrementing of given value is
 provided.
 
 Examples:
---------
+---------
 
-    #!/usr/bin/env javaScript
+```javaScript
+$('input').Incrementer();
+```
 
-    jQuery('body form input.number').incrementer();
-
-    jQuery('body form input.number').incrementer('logging': true);
+<input type="text"></input>
+<script type="text/javascript">
+    $('input').Incrementer();
+</script>

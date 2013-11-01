@@ -83,10 +83,10 @@
         }
         Incrementer.__super__.initialize.call(this, options);
         if (this._options.neededMarkup) {
-          this.$domNode.wrap($('<div>').addClass(this.camelCaseStringToDelimited(this.__name__))).after(this.neededMarkup);
+          this.$domNode.wrap($('<div>').addClass(this.camelCaseStringToDelimited(this.__name__))).after(this._options.neededMarkup);
         }
-        this.$domNode = this.grabDomNode(this._options.domNode);
-        this.on(this.$domNode.plus.add(this.$domNode.minus), 'click', this.getMethod(this._onClick));
+        this.$domNodes = this.grabDomNode(this._options.domNode);
+        this.on(this.$domNodes.plus.add(this.$domNodes.minus), 'click', this.getMethod(this._onClick));
         this.on(this.$domNode, {
           keydown: this.getMethod(this._preventOtherThanNumberInput),
           keyup: this.getMethod(this._onChangeInput),
@@ -96,7 +96,7 @@
       };
 
       /**
-          @description This method triggeres if a "keydown" event occurs.
+          @description This method triggers if a "keydown" event occurs.
                        This callback grantees that only numeric input comes
                        into given dom node.
       
@@ -108,7 +108,7 @@
 
 
       Incrementer.prototype._preventOtherThanNumberInput = function(thisFunction, event) {
-        if ($.inArray(event.keyCode, [$.ui.keyCode.BACKSPACE, $.ui.keyCode.DELETE, $.ui.keyCode.LEFT, $.ui.keyCode.RIGHT, $.ui.keyCode.NUMPAD_SUBTRACT]) === -1 && (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
+        if ($.inArray(event.keyCode, [this.keyCode.BACKSPACE, this.keyCode.DELETE, this.keyCode.LEFT, this.keyCode.RIGHT, this.keyCode.NUMPAD_SUBTRACT]) === -1 && (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
           this.fireEvent('typeInvalidLetter', false, this, event);
           event.preventDefault();
         }
@@ -132,7 +132,7 @@
         if (!currentValue) {
           currentValue = 0;
         }
-        plus = event.target === this.$domNode.plus[0] || this.$domNode.plus.children().filter(event.target).length;
+        plus = event.target === this.$domNodes.plus[0] || this.$domNodes.plus.children().filter(event.target).length;
         if (!plus && currentValue - this._options.step >= this._options.min || plus && currentValue < this._options.max) {
           newValue = currentValue - this._options.step;
           if (plus) {

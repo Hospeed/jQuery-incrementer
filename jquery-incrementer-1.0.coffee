@@ -98,7 +98,6 @@ this.require [['jQuery.Tools', 'jquery-tools-1.0.coffee']], ($) ->
                         this.camelCaseStringToDelimited this.__name__)
                 ).after this._options.neededMarkup
             # Grab elements
-            # TODO rename $domNode to $domNodes
             this.$domNodes = this.grabDomNode this._options.domNode
             # Attach events
             this.on(

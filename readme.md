@@ -26,7 +26,7 @@ provided.
 Example:
 --------
 
-<!--showExample:html-->
+<!--showExample-->
 
     #!HTML
 

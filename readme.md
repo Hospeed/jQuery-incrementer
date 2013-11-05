@@ -34,7 +34,7 @@ Example:
     <script type="text/javascript" src="distributionBundle/jquery-tools-1.0.js"></script>
     <script type="text/javascript" src="distributionBundle/jquery-incrementer-1.0.js"></script>
     <form method="get" action="#">
-        <input type="text" name="test" value="4" />
+        <input type="text" name="test" value="4" class="form-control" />
     </form>
     <script type="text/javascript">
         $('body form input').Incrementer({logging: true});

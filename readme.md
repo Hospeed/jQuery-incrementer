@@ -47,6 +47,10 @@ Usage<!--deDE:Verwendung--><!--frFR:Demande-->
         <input type="text" name="test" value="4" class="form-control" />
     </form>
     <style type="text/css">
+        body form div.incrementer > input.form-control {
+            width: 50%;
+            float: left;
+        }
         body form div.incrementer > a.plus,
         body form div.incrementer > a.minus {
             font-size: 24px;

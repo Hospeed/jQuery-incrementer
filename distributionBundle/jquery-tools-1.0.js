@@ -180,13 +180,10 @@
         if (options == null) {
           options = {};
         }
-        console.log(this._options.domNodeSelectorPrefix);
-        this._options.domNodeSelectorPrefix = this.stringFormat(this._options.domNodeSelectorPrefix, this.camelCaseStringToDelimited(this.__name__));
-        console.log(this._options.domNodeSelectorPrefix);
         if (options) {
           this._options = $.extend(true, this._options, options);
         }
-        console.log(this._options.domNodeSelectorPrefix);
+        this._options.domNodeSelectorPrefix = this.stringFormat(this._options.domNodeSelectorPrefix, this.camelCaseStringToDelimited(this.__name__));
         return this;
       };
 

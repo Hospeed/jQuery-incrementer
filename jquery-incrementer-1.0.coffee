@@ -62,8 +62,8 @@ this.require [['jQuery.Tools', 'jquery-tools-1.0.coffee']], ($) ->
             min: 0
             max: 9999
             domNode:
-                plus: 'a.plus'
-                minus: 'a.minus'
+                plus: '> a.plus'
+                minus: '> a.minus'
             neededMarkup: """
                 <a href="#" class="plus">plus</a>
                 <a href="#" class="minus">minus</a>

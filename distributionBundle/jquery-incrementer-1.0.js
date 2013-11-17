@@ -82,6 +82,7 @@
           options = {};
         }
         Incrementer.__super__.initialize.call(this, options);
+        console.log(this.domNodeSelectorPrefix);
         if (this._options.neededMarkup) {
           this.$domNode.wrap($('<div>').addClass(this.camelCaseStringToDelimited(this.__name__))).after(this._options.neededMarkup);
         }

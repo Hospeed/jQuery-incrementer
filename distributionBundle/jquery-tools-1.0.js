@@ -186,6 +186,7 @@
         if (options) {
           this._options = $.extend(true, this._options, options);
         }
+        console.log(this._options.domNodeSelectorPrefix);
         return this;
       };
 

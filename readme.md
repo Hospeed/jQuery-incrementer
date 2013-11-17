@@ -50,7 +50,8 @@ Example:
                     plus: '> a.plus',
                     minus: '> a.minus'
                 },
-                neededMarkup: '<a href="#" class="plus">plus</a><a href="#" class="minus">minus</a>',
+                neededMarkup: '<a href="#" class="plus">plus</a>' +
+                              '<a href="#" class="minus">minus</a>',
                 logging: true
             });
         });

@@ -16,15 +16,25 @@ License
 
 endregion -->
 
-jQuery-incrementer
-==================
+Use case<!--deDE:Einsatz--><!--frFR:Utilisier-->
+================================================
 
 This plugin extends an html input field which serves a number to be given.
 Handling validation and easy incrementing or decrementing of given value is
 provided.
+<!--deDE:
+    Diese Plugin erweitert an html input Formularfeld, dass eine Anzahl
+    erwartet. Dieses Plugin übernimmt Validierung und einfaches Inkrementieren
+    und Dekrementieren des Eingabefeldes.
+-->
+<!--frFR:
+    Ce plugin étend le champ de formulaire de saisie html qu'un certain nombre
+    attendu. Ce plugin reprend validation et incrémente simplement et diminuer
+    le champ de saisie.
+-->
 
-Example:
---------
+Usage<!--deDE:Verwendung--><!--frFR:Demande-->
+----------------------------------------------
 
 <!--showExample-->
 
@@ -38,7 +48,10 @@ Example:
     </form>
     <style type="text/css">
         body form div.incrementer > a.plus,
-        body form div.incrementer > a.minus { font-size: 24px; }
+        body form div.incrementer > a.minus {
+            font-size: 24px;
+            font-weight: bold;
+        }
     </style>
     <script type="text/javascript">
         $(function($) {
@@ -54,8 +67,8 @@ Example:
                     plus: '> a.plus',
                     minus: '> a.minus'
                 },
-                neededMarkup: '<a href="#" class="plus">plus</a>' +
-                              '<a href="#" class="minus">minus</a>',
+                neededMarkup: '<a href="#" class="plus">+</a>' +
+                              '<a href="#" class="minus">-</a>',
                 logging: true
             });
         });

@@ -55,6 +55,7 @@ Usage<!--deDE:Verwendung--><!--frFR:Demande-->
         body form div.incrementer > a.minus {
             font-size: 24px;
             font-weight: bold;
+            margin: 10px;
         }
     </style>
     <script type="text/javascript">

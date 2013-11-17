@@ -91,7 +91,6 @@ this.require [['jQuery.Tools', 'jquery-tools-1.0.coffee']], ($) ->
         ###
         initialize: (options={}) ->
             super options
-            console.log this.stringFormat this._options.domNodeSelectorPrefix, 'A'
             # Generate needed html.
             if this._options.neededMarkup
                 this.$domNode.wrap(

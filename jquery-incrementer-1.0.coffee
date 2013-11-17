@@ -65,8 +65,8 @@ this.require [['jQuery.Tools', 'jquery-tools-1.0.coffee']], ($) ->
                 plus: '> a.plus'
                 minus: '> a.minus'
             neededMarkup: """
-                <a href="#" class="plus">plus</a>
-                <a href="#" class="minus">minus</a>
+                <a href="#" class="plus">+</a>
+                <a href="#" class="minus">-</a>
             """
         ###*
             Saves the class name for introspection.

@@ -36,6 +36,10 @@ Example:
     <form method="get" action="#">
         <input type="text" name="test" value="4" class="form-control" />
     </form>
+    <style type="text/css">
+        body form div.incrementer > a.plus,
+        body form div.incrementer > a.minus { font-size: 24px; }
+    </style>
     <script type="text/javascript">
         $(function($) {
             $('body form input').Incrementer({

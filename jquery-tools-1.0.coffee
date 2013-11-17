@@ -151,14 +151,13 @@ this.require [['jQuery', 'jquery-2.0.3']], ($) ->
             @returns {$.Tools} Returns the current instance.
         ###
         initialize: (options={}) ->
-            console.log this._options.domNodeSelectorPrefix
+            if options
+                this._options = $.extend true, this._options, options
+            # The selector prefix should be parsed after extending options
+            # because the selector would be overwritten otherwise.
             this._options.domNodeSelectorPrefix = this.stringFormat(
                 this._options.domNodeSelectorPrefix,
                 this.camelCaseStringToDelimited this.__name__)
-            console.log this._options.domNodeSelectorPrefix
-            if options
-                this._options = $.extend true, this._options, options
-            console.log this._options.domNodeSelectorPrefix
             this
 
         # endregion

@@ -48,7 +48,7 @@ Usage<!--deDE:Verwendung--><!--frFR:Demande-->
     </form>
     <style type="text/css">
         body form div.incrementer > input.form-control {
-            width: 50%;
+            width: 34px;
             float: left;
         }
         body form div.incrementer > a.plus,

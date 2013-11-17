@@ -158,6 +158,7 @@ this.require [['jQuery', 'jquery-2.0.3']], ($) ->
             console.log this._options.domNodeSelectorPrefix
             if options
                 this._options = $.extend true, this._options, options
+            console.log this._options.domNodeSelectorPrefix
             this
 
         # endregion

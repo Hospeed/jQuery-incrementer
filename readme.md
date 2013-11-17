@@ -37,5 +37,19 @@ Example:
         <input type="text" name="test" value="4" class="form-control" />
     </form>
     <script type="text/javascript">
-        $('body form input').Incrementer({logging: true});
+        $('body form input').Incrementer({
+            domNodeSelectorPrefix: 'body form div.{1}',
+            onInvalidNumber: $.noop(),
+            onTypeInvalidLetter: $.noop(),
+            logging: false,
+            step: 1,
+            min: 0,
+            max: 9999,
+            domNode: {
+                plus: 'a.plus',
+                minus: 'a.minus'
+            },
+            neededMarkup: "<a href="#" class="plus">plus</a><a href="#" class="minus">minus</a>",
+            logging: true
+        });
     </script>

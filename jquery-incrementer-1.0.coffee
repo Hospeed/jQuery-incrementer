@@ -46,6 +46,17 @@ this.require [['jQuery.Tools', 'jquery-tools-1.0.coffee']], ($) ->
     ###
     class Incrementer extends $.Tools.class
 
+    # region properties
+
+        ###*
+            Holds the class name to provide inspection features.
+
+            @property {String}
+        ###
+        __name__: 'Incrementer'
+
+    # endregion
+
     # region public methods
 
         # region special
@@ -58,7 +69,7 @@ this.require [['jQuery.Tools', 'jquery-tools-1.0.coffee']], ($) ->
 
             @returns {$.Incrementer} Returns the current instance.
         ###
-        initialize: (options={}, @__name__='Incrementer') ->
+        initialize: (options={}) ->
             ###*
                 Saves default options for manipulating the Gui's behaviour.
 

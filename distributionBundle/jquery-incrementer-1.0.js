@@ -37,37 +37,6 @@
       }
 
       /**
-          Saves default options for manipulating the Gui's behaviour.
-      
-          @property {Object}
-      */
-
-
-      Incrementer.prototype._options = {
-        domNodeSelectorPrefix: 'body form div.{1}',
-        onInvalidNumber: $.noop(),
-        onTypeInvalidLetter: $.noop(),
-        logging: false,
-        step: 1,
-        min: 0,
-        max: 9999,
-        domNode: {
-          plus: '> a.plus',
-          minus: '> a.minus'
-        },
-        neededMarkup: "<a href=\"#\" class=\"plus\">+</a>\n<a href=\"#\" class=\"minus\">-</a>"
-      };
-
-      /**
-          Saves the class name for introspection.
-      
-          @property {String}
-      */
-
-
-      Incrementer.prototype.__name__ = 'Incrementer';
-
-      /**
           @description Initializes the plugin. Later needed dom nodes are
                        grabbed.
       
@@ -77,10 +46,31 @@
       */
 
 
-      Incrementer.prototype.initialize = function(options) {
+      Incrementer.prototype.initialize = function(options, __name__) {
         if (options == null) {
           options = {};
         }
+        this.__name__ = __name__ != null ? __name__ : 'Incrementer';
+        /**
+            Saves default options for manipulating the Gui's behaviour.
+        
+            @property {Object}
+        */
+
+        this._options = {
+          domNodeSelectorPrefix: 'body form div.{1}',
+          onInvalidNumber: $.noop(),
+          onTypeInvalidLetter: $.noop(),
+          logging: false,
+          step: 1,
+          min: 0,
+          max: 9999,
+          domNode: {
+            plus: '> a.plus',
+            minus: '> a.minus'
+          },
+          neededMarkup: "<a href=\"#\" class=\"plus\">+</a>\n<a href=\"#\" class=\"minus\">-</a>"
+        };
         Incrementer.__super__.initialize.call(this, options);
         if (this._options.neededMarkup) {
           this.$domNode.wrap($('<div>').addClass(this.camelCaseStringToDelimited(this.__name__))).after(this._options.neededMarkup);

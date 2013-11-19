@@ -37,6 +37,15 @@
       }
 
       /**
+          Holds the class name to provide inspection features.
+      
+          @property {String}
+      */
+
+
+      Incrementer.prototype.__name__ = 'Incrementer';
+
+      /**
           @description Initializes the plugin. Later needed dom nodes are
                        grabbed.
       
@@ -46,11 +55,10 @@
       */
 
 
-      Incrementer.prototype.initialize = function(options, __name__) {
+      Incrementer.prototype.initialize = function(options) {
         if (options == null) {
           options = {};
         }
-        this.__name__ = __name__ != null ? __name__ : 'Incrementer';
         /**
             Saves default options for manipulating the Gui's behaviour.
         

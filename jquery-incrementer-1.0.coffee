@@ -46,37 +46,6 @@ this.require [['jQuery.Tools', 'jquery-tools-1.0.coffee']], ($) ->
     ###
     class Incrementer extends $.Tools.class
 
-    # region properties
-
-        ###*
-            Saves default options for manipulating the Gui's behaviour.
-
-            @property {Object}
-        ###
-        _options:
-            domNodeSelectorPrefix: 'body form div.{1}'
-            onInvalidNumber: $.noop()
-            onTypeInvalidLetter: $.noop()
-            logging: false
-            step: 1
-            min: 0
-            max: 9999
-            domNode:
-                plus: '> a.plus'
-                minus: '> a.minus'
-            neededMarkup: """
-                <a href="#" class="plus">+</a>
-                <a href="#" class="minus">-</a>
-            """
-        ###*
-            Saves the class name for introspection.
-
-            @property {String}
-        ###
-        __name__: 'Incrementer'
-
-    # endregion
-
     # region public methods
 
         # region special
@@ -89,7 +58,27 @@ this.require [['jQuery.Tools', 'jquery-tools-1.0.coffee']], ($) ->
 
             @returns {$.Incrementer} Returns the current instance.
         ###
-        initialize: (options={}) ->
+        initialize: (options={}, @__name__='Incrementer') ->
+            ###*
+                Saves default options for manipulating the Gui's behaviour.
+
+                @property {Object}
+            ###
+            this._options =
+                domNodeSelectorPrefix: 'body form div.{1}'
+                onInvalidNumber: $.noop()
+                onTypeInvalidLetter: $.noop()
+                logging: false
+                step: 1
+                min: 0
+                max: 9999
+                domNode:
+                    plus: '> a.plus'
+                    minus: '> a.minus'
+                neededMarkup: """
+                    <a href="#" class="plus">+</a>
+                    <a href="#" class="minus">-</a>
+                """
             super options
             # Generate needed html.
             if this._options.neededMarkup

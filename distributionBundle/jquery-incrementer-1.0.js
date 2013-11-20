@@ -90,7 +90,7 @@
           keyup: this.getMethod(this._onChangeInput),
           change: this.getMethod(this._onChangeInput)
         });
-        return this;
+        return this.$domNode;
       };
 
       /**

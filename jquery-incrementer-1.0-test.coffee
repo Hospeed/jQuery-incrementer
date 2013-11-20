@@ -20,11 +20,19 @@ module 'Incrementer'
 
 # region tests
 
+    # region mock-up
+
+incrementer = $('body').Incrementer().data 'Incrementer'
+
+    # endregion
+
     # region public methods
 
         # region special
 
-test 'initialize', -> ok $('body').Incrementer()
+test 'initialize', ->
+    ok incrementer
+    ok $('body').Incrementer()
 
 
         # endregion
@@ -36,36 +44,31 @@ test 'initialize', -> ok $('body').Incrementer()
         # region event
 
 test '_preventOtherThanNumberInput', ->
-    ok $('body').Incrementer()._preventOtherThanNumberInput null, {
-        keyCode: 49, preventDefault: ->
-    }
-    ok $('body').Incrementer()._preventOtherThanNumberInput null, {
-        keyCode: 47, preventDefault: ->
-    }
+    strictEqual incrementer._preventOtherThanNumberInput(
+        null, keyCode: 49, preventDefault: ->
+    ), incrementer
+    strictEqual incrementer._preventOtherThanNumberInput(
+        null, keyCode: 47, preventDefault: ->
+    ), incrementer
 test '_onClick', ->
-    ok $('body').Incrementer()._onClick null, {
-        preventDefault: ->
-        target: $('body')[0]
-    }
+    strictEqual incrementer._onClick(
+        null, preventDefault: (->), target: $('body')[0]
+    ), incrementer
 test '_onChangeInput', ->
-    ok $('body').Incrementer()._onChangeInput null, {
-        preventDefault: ->
-        target: $('body')[0]
-    }
+    strictEqual incrementer._onChangeInput(
+        null, preventDefault: (->), target: $('body')[0]
+    ), incrementer
 test '_onTypeInvalidLetter', ->
-    ok $('body').Incrementer()._onTypeInvalidLetter {
-        preventDefault: ->
-        keyCode: 49
-    }
+    strictEqual incrementer._onTypeInvalidLetter(
+        preventDefault: (->), keyCode: 49
+    ), incrementer
 test '_onInvalidNumber', ->
-    ok $('body').Incrementer()._onInvalidNumber {
-        preventDefault: ->
-        keyCode: 49
-    }
+    strictEqual incrementer._onInvalidNumber(
+        preventDefault: (->), keyCode: 49
+    ), incrementer
 
         # endregion
 
     # endregion
-
 
 # endregion

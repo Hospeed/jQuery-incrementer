@@ -109,7 +109,7 @@ this.require [['jQuery.Tools', 'jquery-tools-1.0.coffee']], ($) ->
                 keydown: this.getMethod this._preventOtherThanNumberInput
                 keyup: this.getMethod this._onChangeInput
                 change: this.getMethod this._onChangeInput)
-            this
+            this.$domNode
 
         # endregion
 

@@ -29,8 +29,11 @@
     given value is provided.
 ###
 
-## standalone do ($=this.jQuery) ->
-this.require [['jQuery.Tools', 'jquery-tools-1.0.coffee']], ($) ->
+## standalone
+## do ($=this.jQuery) ->
+this.require.scopeIndicator = 'jQuery.fn.Incrementer'
+this.require 'jquery-tools-1.0.coffee', ($) ->
+##
 
 # endregion
 

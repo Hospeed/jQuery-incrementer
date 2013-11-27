@@ -43,7 +43,7 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
     # region properties
 
         ###
-            # __name__ {String}
+            **__name__ {String}**
             Holds the class name to provide inspection features.
         ###
         __name__: 'Incrementer'

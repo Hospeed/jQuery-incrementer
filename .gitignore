@@ -13,9 +13,6 @@ develop-eggs
 lib
 lib64
 
-# Generated API documentation
-api
-
 # Installer logs
 pip-log.txt
 

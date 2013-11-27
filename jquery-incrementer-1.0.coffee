@@ -1,6 +1,6 @@
 #!/usr/bin/env require
 
-### region vim modline
+###* region vim modline
 
 vim: set tabstop=4 shiftwidth=4 expandtab:
 vim: foldmethod=marker foldmarker=region,endregion:

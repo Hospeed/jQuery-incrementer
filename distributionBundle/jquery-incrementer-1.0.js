@@ -45,8 +45,8 @@ region header
       }
 
       /*
+          # __name__ {String}
           Holds the class name to provide inspection features.
-          `__name__ {String}`
       */
 
 
@@ -64,8 +64,8 @@ region header
           options = {};
         }
         /*
+            # _options {Object}
             Saves default options for manipulating the Gui's behaviour.
-            '_options {Object}`
         */
 
         this._options = {

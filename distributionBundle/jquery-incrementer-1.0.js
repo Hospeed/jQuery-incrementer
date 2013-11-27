@@ -45,7 +45,7 @@ region header
       }
 
       /*
-          # __name__ {String}
+          **__name__ {String}**
           Holds the class name to provide inspection features.
       */
 

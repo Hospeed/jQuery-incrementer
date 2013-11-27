@@ -43,8 +43,8 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
     # region properties
 
         ###
+            # __name__ {String}
             Holds the class name to provide inspection features.
-            `__name__ {String}`
         ###
         __name__: 'Incrementer'
 
@@ -61,8 +61,8 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
         ###
         initialize: (options={}) ->
             ###
+                # _options {Object}
                 Saves default options for manipulating the Gui's behaviour.
-                '_options {Object}`
             ###
             this._options =
                 domNodeSelectorPrefix: 'body form div.{1}'

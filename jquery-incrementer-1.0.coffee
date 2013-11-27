@@ -16,14 +16,14 @@
 #    naming 3.0 unported license.
 #    see http://creativecommons.org/licenses/by/3.0/deed.de
 
-###!
+###
     Copyright see require on https://github.com/thaibault/require
 
     Conventions see require on https://github.com/thaibault/require
 
-    @author t.sickert@gmail.com (Torben Sickert)
-    @version 1.0 stable
-    @fileOverview
+    author: t.sickert@gmail.com (Torben Sickert)
+    version: 1.0 stable
+
     This plugin extends an html input field which serves a number to be given.
     Handling validation and easy incrementing or decrementing of
     given value is provided.
@@ -39,7 +39,7 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
 
 # region plugins/classes
 
-    ###*
+    ###
         @memberOf $
         @class
         @extends $.Tools
@@ -51,7 +51,7 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
 
     # region properties
 
-        ###*
+        ###
             Holds the class name to provide inspection features.
 
             @property {String}

@@ -64,8 +64,11 @@ see <a href="http://creativecommons.org/licenses/by/3.0/deed.de">http://creative
             
           </div>
           <div class="class-content">
-            <p><strong>keyCode {Object}</strong>
-Saves a mapping from key codes to their corresponding name.</p>
+            <p>This plugin provides such interface logic like generic controller
+logic for integrating plugins into $, mutual exclusion for
+depending gui elements, logging additional string, array or
+function handling. A set of helper functions to parse option
+objects dom trees or handle events is also provided.</p>
 
             <div class="methods">
               
@@ -75,47 +78,86 @@ Saves a mapping from key codes to their corresponding name.</p>
                 
                 <div class="method">
                   <h4>constructor(@$domNode, @_options, @_defaultOptions, @_locks)</h4>
-                  
+                  <p>This method should be overwritten normally. It is triggered if
+current object is created via the &quot;new&quot; keyword.</p>
+<p><strong>returns {$.Tools}</strong> Returns the current instance.</p>
+
                 </div>
                 
                 <div class="method">
                   <h4>destructor()</h4>
-                  
+                  <p>This method could be overwritten normally. It acts like a
+destructor.</p>
+<p><strong>returns {$.Tools}</strong> - Returns the current instance.</p>
+
                 </div>
                 
                 <div class="method">
                   <h4>initialize(options)</h4>
-                  
+                  <p>This method should be overwritten normally. It is triggered if
+current object was created via the &quot;new&quot; keyword and is called
+now.</p>
+<p><strong>options {Object}</strong>  - options An options object.</p>
+<p><strong>returns {$.Tools}</strong> - Returns the current instance.</p>
+
                 </div>
                 
                 <div class="method">
                   <h4>controller(object, parameter, $domNode)</h4>
-                  
+                  <p>Defines a generic controller for $ plugins.</p>
+<p><strong>object {Object|String}</strong> - The object or class to control. If
+                             &quot;object&quot; is a class an instance
+                             will be generated.
+<strong>parameter {Arguments}</strong>  - The initially given arguments
+                             object.</p>
+<p><strong>returns {Mixed}</strong>        - Returns whatever the initializer
+                             method returns.</p>
+
                 </div>
                 
                 <div class="method">
                   <h4>acquireLock(description, callbackFunction, autoRelease)</h4>
-                  <p>NOTE: The &quot;window.setTimeout()&quot; wrapper guarantees that the
-following function will be executed without any context
-switches in all browsers.
-If you want to understand more about that,
-&quot;What are event loops?&quot; might be a good question.</p>
+                  <p>Calling this method introduces a starting point for a critical
+area with potential race conditions. The area will be binded to
+given description string. So don&#39;t use same names for different
+areas.</p>
+<p><strong>description {String}</strong>        - A short string describing the
+                                  critical areas properties.
+<strong>callbackFunction {Function}</strong> - A procedure which should only
+                                  be executed if the
+                                  interpreter isn&#39;t in the
+                                  given critical area. The lock
+                                  description string will be
+                                  given to the callback
+                                  function.
+<strong>autoRelease {Boolean}</strong>       - Release the lock after
+                                  execution of given callback.</p>
+<p><strong>returns {$.Tools}</strong>           - Returns the current instance.</p>
 
                 </div>
                 
                 <div class="method">
                   <h4>releaseLock(description)</h4>
-                  <p>NOTE: The &quot;window.setTimeout()&quot; wrapper guarantees that the
-following function will be executed without any context
-switches in all browsers.
-If you want to understand more about that,
-&quot;What are event loops?&quot; might be a good question.</p>
+                  <p>Calling this method  causes the given critical area to be
+finished and all functions given to &quot;this.acquireLock()&quot; will
+be executed in right order.</p>
+<p><strong>description {String}</strong> - A short string describing the
+                           critical areas properties.</p>
+<p><strong>returns {$.Tools}</strong>    - Returns the current instance.</p>
 
                 </div>
                 
                 <div class="method">
                   <h4>mouseOutEventHandlerFix(eventHandler)</h4>
-                  
+                  <p>This method fixes an ugly javaScript bug. If you add a mouseout
+event listener to a dom node the given handler will be called
+each time any dom node inside the observed dom node triggers a
+mouseout event. This methods guarantees that the given event
+handler is only called if the observed dom node was leaved.</p>
+<p><strong>eventHandler {Function}</strong> - The mouse out event handler.</p>
+<p><strong>returns {Function}</strong>      - Returns the given function
+                              wrapped by the workaround logic.</p>
+
                 </div>
                 
                 <div class="method">

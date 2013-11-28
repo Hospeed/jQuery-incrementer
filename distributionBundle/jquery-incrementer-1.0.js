@@ -38,11 +38,6 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   (function($) {
-    /*
-        This plugin holds all needed methods to extend input fields to select
-        numbers very smart.
-    */
-
     var Incrementer, _ref;
     Incrementer = (function(_super) {
       __extends(Incrementer, _super);
@@ -53,6 +48,12 @@
       }
 
       /*
+          This plugin holds all needed methods to extend input fields to
+          select numbers very smart.
+      */
+
+
+      /*
           **__name__ {String}**
           Holds the class name to provide inspection features.
       */
@@ -60,18 +61,18 @@
 
       Incrementer.prototype.__name__ = 'Incrementer';
 
-      /*
-          Initializes the plugin. Later needed dom nodes are grabbed.
-      
-          **options {Object}**        - An options object.
-          **returns {$.Incrementer}** - Returns the current instance.
-      */
-
-
       Incrementer.prototype.initialize = function(options) {
         if (options == null) {
           options = {};
         }
+        /*
+            Initializes the plugin. Later needed dom nodes are grabbed.
+        
+            **options {Object}**        - An options object.
+        
+            **returns {$.Incrementer}** - Returns the current instance.
+        */
+
         /*
             **_options {Object}**
             Saves default options for manipulating the Gui's behaviour.
@@ -105,18 +106,17 @@
         return this.$domNode;
       };
 
-      /*
-          This method triggers if a "keydown" event occurs. This callback
-          grantees that only numeric input comes into given dom node.
-      
-          **thisFunction {Function}** - this function itself
-          **event {Object}**          - the event object
-      
-          **returns {$.Incrementer}** - Returns the current instance.
-      */
-
-
       Incrementer.prototype._preventOtherThanNumberInput = function(thisFunction, event) {
+        /*
+            This method triggers if a "keydown" event occurs. This callback
+            grantees that only numeric input comes into given dom node.
+        
+            **thisFunction {Function}** - this function itself
+            **event {Object}**          - the event object
+        
+            **returns {$.Incrementer}** - Returns the current instance.
+        */
+
         if ($.inArray(event.keyCode, [this.keyCode.BACKSPACE, this.keyCode.DELETE, this.keyCode.LEFT, this.keyCode.RIGHT, this.keyCode.NUMPAD_SUBTRACT]) === -1 && (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
           this.fireEvent('typeInvalidLetter', false, this, event);
           event.preventDefault();
@@ -124,18 +124,17 @@
         return this;
       };
 
-      /*
-          This method triggeres if a "click" event on increment or decrement
-          buttons occurs.
-      
-          **thisFunction {Function}** - this function itself
-          **event {Object}**          - the event object
-      
-          **returns {$.Incrementer}** - Returns the current instance.
-      */
-
-
       Incrementer.prototype._onClick = function(thisFunction, event) {
+        /*
+            This method triggers if a "click" event on increment or
+            decrement buttons occurs.
+        
+            **thisFunction {Function}** - this function itself
+            **event {Object}**          - the event object
+        
+            **returns {$.Incrementer}** - Returns the current instance.
+        */
+
         var currentValue, newValue, plus;
         event.preventDefault();
         currentValue = window.parseInt(this.$domNode.val());
@@ -155,17 +154,17 @@
         return this;
       };
 
-      /*
-          This method triggers if a "change" event on given dom node occurs.
-      
-          **thisFunction {Function}** - this function itself
-          **event {Object}**          - the event object
-      
-          **returns {$.Incrementer}** - Returns the current instance.
-      */
-
-
       Incrementer.prototype._onChangeInput = function(thisFunction, event) {
+        /*
+            This method triggers if a "change" event on given dom node
+            occurs.
+        
+            **thisFunction {Function}** - this function itself
+            **event {Object}**          - the event object
+        
+            **returns {$.Incrementer}** - Returns the current instance.
+        */
+
         var target, value;
         target = $(event.target);
         value = window.parseInt(target.val(target.val().replace(/[^0-9]+/g, '')).val());
@@ -179,17 +178,16 @@
         return this;
       };
 
-      /*
-          This method triggers if an invalid number was given via keyboard
-          input.
-      
-          **event {Object}**          - the event object
-      
-          **returns {$.Incrementer}** - Returns the current instance.
-      */
-
-
       Incrementer.prototype._onTypeInvalidLetter = function(event) {
+        /*
+            This method triggers if an invalid number was given via
+            keyboard input.
+        
+            **event {Object}**          - the event object
+        
+            **returns {$.Incrementer}** - Returns the current instance.
+        */
+
         var character, typedCharInfo;
         typedCharInfo = '';
         character = String.fromCharCode(event.keyCode);
@@ -199,22 +197,21 @@
         return this.info("Please type a number" + typedCharInfo + ".");
       };
 
-      /*
-          This method is triggered if a "change" event on given dom node
-          occurs.
-      
-          **event {Object}**          - the event object
-          **value {String}**          - the invalid chars
-      
-          **returns {$.Incrementer}** - Returns the current instance.
-      */
-
-
       Incrementer.prototype._onInvalidNumber = function(event, value) {
         var character, typedCharInfo;
         if (value == null) {
           value = '';
         }
+        /*
+            This method is triggered if a "change" event on given dom node
+            occurs.
+        
+            **event {Object}**          - the event object
+            **value {String}**          - the invalid chars
+        
+            **returns {$.Incrementer}** - Returns the current instance.
+        */
+
         typedCharInfo = '';
         character = String.fromCharCode(event.keyCode);
         if (value) {

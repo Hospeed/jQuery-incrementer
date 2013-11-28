@@ -37,16 +37,16 @@
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   (function($) {
-    /*
-        This plugin provides such interface logic like generic controller logic
-        for integrating plugins into $, mutual exclusion for depending gui
-        elements, logging additional string, array or function handling. A set
-        of helper functions to parse option objects dom trees or handle events
-        is also provided.
-    */
-
     var Tools;
     Tools = (function() {
+      /*
+          This plugin provides such interface logic like generic controller
+          logic for integrating plugins into $, mutual exclusion for
+          depending gui elements, logging additional string, array or
+          function handling. A set of helper functions to parse option
+          objects dom trees or handle events is also provided.
+      */
+
       /*
           **keyCode {Object}**
           Saves a mapping from key codes to their corresponding name.
@@ -102,14 +102,6 @@
 
       Tools.prototype.__name__ = 'Tools';
 
-      /*
-          This method should be overwritten normally. It is triggered if
-          current object is created via the "new" keyword.
-      
-          **returns {$.Tools}** Returns the current instance.
-      */
-
-
       function Tools($domNode, _options, _defaultOptions, _locks) {
         var method, _i, _len, _ref;
         this.$domNode = $domNode != null ? $domNode : null;
@@ -119,6 +111,13 @@
           domNodeSelectorPrefix: 'body'
         };
         this._locks = _locks != null ? _locks : {};
+        /*
+            This method should be overwritten normally. It is triggered if
+            current object is created via the "new" keyword.
+        
+            **returns {$.Tools}** Returns the current instance.
+        */
+
         _ref = this._consoleMethods;
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           method = _ref[_i];
@@ -132,55 +131,54 @@
         return this;
       }
 
-      /*
-          This method could be overwritten normally. It acts like a
-          destructor.
-      
-          **returns {$.Tools}** - Returns the current instance.
-      */
-
-
       Tools.prototype.destructor = function() {
+        /*
+            This method could be overwritten normally. It acts like a
+            destructor.
+        
+            **returns {$.Tools}** - Returns the current instance.
+        */
+
         this.off('*');
         return this;
       };
-
-      /*
-          This method should be overwritten normally. It is triggered if
-          current object was created via the "new" keyword and is called now.
-      
-          **options {Object}**  - options An options object.
-      
-          **returns {$.Tools}** - Returns the current instance.
-      */
-
 
       Tools.prototype.initialize = function(options) {
         if (options == null) {
           options = {};
         }
+        /*
+            This method should be overwritten normally. It is triggered if
+            current object was created via the "new" keyword and is called
+            now.
+        
+            **options {Object}**  - options An options object.
+        
+            **returns {$.Tools}** - Returns the current instance.
+        */
+
         $.extend(true, this._options, this._defaultOptions, options);
         this._options.domNodeSelectorPrefix = this.stringFormat(this._options.domNodeSelectorPrefix, this.camelCaseStringToDelimited(this.__name__));
         return this;
       };
 
-      /*
-          Defines a generic controller for $ plugins.
-      
-          **object {Object|String}** - The object or class to control. If
-                                       "object" is a class an instance will
-                                       be generated.
-          **parameter {Arguments}**  - The initially given arguments object.
-      
-          **returns {Mixed}**        - Returns whatever the initializer
-                                       method returns.
-      */
-
-
       Tools.prototype.controller = function(object, parameter, $domNode) {
         if ($domNode == null) {
           $domNode = null;
         }
+        /*
+            Defines a generic controller for $ plugins.
+        
+            **object {Object|String}** - The object or class to control. If
+                                         "object" is a class an instance
+                                         will be generated.
+            **parameter {Arguments}**  - The initially given arguments
+                                         object.
+        
+            **returns {Mixed}**        - Returns whatever the initializer
+                                         method returns.
+        */
+
         parameter = this.argumentsObjectToArray(parameter);
         if (object.__name__ == null) {
           object = new object($domNode);
@@ -208,25 +206,6 @@
         return $.error(("Method \"" + parameter[0] + "\" does not exist on $-extension ") + ("" + object.__name__ + "\"."));
       };
 
-      /*
-          Calling this method introduces a starting point for a critical area
-          with potential race conditions. The area will be binded to given
-          description string. So don't use same names for different areas.
-      
-          **description {String}**        - A short string describing the
-                                            critical areas properties.
-          **callbackFunction {Function}** - A procedure which should only be
-                                            executed if the interpreter isn't
-                                            in the given critical area. The
-                                            lock description string will be
-                                            given to the callback function.
-          **autoRelease {Boolean}**       - Release the lock after execution
-                                            of given callback.
-      
-          **returns {$.Tools}**           - Returns the current instance.
-      */
-
-
       Tools.prototype.acquireLock = function(description, callbackFunction, autoRelease) {
         var wrappedCallbackFunction,
           _this = this;
@@ -234,11 +213,31 @@
           autoRelease = false;
         }
         /*
+            Calling this method introduces a starting point for a critical
+            area with potential race conditions. The area will be binded to
+            given description string. So don't use same names for different
+            areas.
+        
+            **description {String}**        - A short string describing the
+                                              critical areas properties.
+            **callbackFunction {Function}** - A procedure which should only
+                                              be executed if the
+                                              interpreter isn't in the
+                                              given critical area. The lock
+                                              description string will be
+                                              given to the callback
+                                              function.
+            **autoRelease {Boolean}**       - Release the lock after
+                                              execution of given callback.
+        
+            **returns {$.Tools}**           - Returns the current instance.
+        */
+
+        /*
             NOTE: The "window.setTimeout()" wrapper guarantees that the
             following function will be executed without any context
-            switches in all browsers.
-            If you want to understand more about that,
-            "What are event loops?" might be a good question.
+            switches in all browsers. If you want to understand more about
+            that, "What are event loops?" might be a good question.
         */
 
         wrappedCallbackFunction = function(description) {
@@ -256,19 +255,18 @@
         return this;
       };
 
-      /*
-          Calling this method  causes the given critical area to be finished
-          and all functions given to "this.acquireLock()" will be executed in
-          right order.
-      
-          **description {String}** - A short string describing the critical
-                                     areas properties.
-      
-          **returns {$.Tools}**    - Returns the current instance.
-      */
-
-
       Tools.prototype.releaseLock = function(description) {
+        /*
+            Calling this method  causes the given critical area to be
+            finished and all functions given to "this.acquireLock()" will
+            be executed in right order.
+        
+            **description {String}** - A short string describing the
+                                       critical areas properties.
+        
+            **returns {$.Tools}**    - Returns the current instance.
+        */
+
         /*
             NOTE: The "window.setTimeout()" wrapper guarantees that the
             following function will be executed without any context
@@ -290,21 +288,20 @@
         return this;
       };
 
-      /*
-          This method fixes an ugly javaScript bug. If you add a mouseout
-          event listener to a dom node the given handler will be called each
-          time any dom node inside the observed dom node triggers a mouseout
-          event. This methods guarantees that the given event handler is
-          only called if the observed dom node was leaved.
-      
-          **eventHandler {Function}** - The mouse out event handler.
-      
-          **returns {Function}**      - Returns the given function wrapped by
-                                        the workaround logic.
-      */
-
-
       Tools.prototype.mouseOutEventHandlerFix = function(eventHandler) {
+        /*
+            This method fixes an ugly javaScript bug. If you add a mouseout
+            event listener to a dom node the given handler will be called
+            each time any dom node inside the observed dom node triggers a
+            mouseout event. This methods guarantees that the given event
+            handler is only called if the observed dom node was leaved.
+        
+            **eventHandler {Function}** - The mouse out event handler.
+        
+            **returns {Function}**      - Returns the given function
+                                          wrapped by the workaround logic.
+        */
+
         var self;
         self = this;
         return function(event) {

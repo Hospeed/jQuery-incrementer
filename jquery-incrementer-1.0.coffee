@@ -133,6 +133,7 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
                 grantees that only numeric input comes into given dom node.
 
                 **thisFunction {Function}** - this function itself
+
                 **event {Object}**          - the event object
 
                 **returns {$.Incrementer}** - Returns the current instance.
@@ -154,6 +155,7 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
                 decrement buttons occurs.
 
                 **thisFunction {Function}** - this function itself
+
                 **event {Object}**          - the event object
 
                 **returns {$.Incrementer}** - Returns the current instance.
@@ -182,6 +184,7 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
                 occurs.
 
                 **thisFunction {Function}** - this function itself
+
                 **event {Object}**          - the event object
 
                 **returns {$.Incrementer}** - Returns the current instance.
@@ -216,6 +219,7 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
                 occurs.
 
                 **event {Object}**          - the event object
+
                 **value {String}**          - the invalid chars
 
                 **returns {$.Incrementer}** - Returns the current instance.

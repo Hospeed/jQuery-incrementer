@@ -67,7 +67,7 @@
           options = {};
         }
         /*
-            # _options {Object}
+            **_options {Object}**
             Saves default options for manipulating the Gui's behaviour.
         */
 

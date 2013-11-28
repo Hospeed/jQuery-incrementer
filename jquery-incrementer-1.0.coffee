@@ -52,11 +52,11 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
 
 # region plugins/classes
 
-    ###
-        This plugin holds all needed methods to extend input fields to select
-        numbers very smart.
-    ###
     class Incrementer extends $.Tools.class
+        ###
+            This plugin holds all needed methods to extend input fields to
+            select numbers very smart.
+        ###
 
     # region properties
 
@@ -72,13 +72,14 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
 
         # region special
 
-        ###
-            Initializes the plugin. Later needed dom nodes are grabbed.
-
-            **options {Object}**        - An options object.
-            **returns {$.Incrementer}** - Returns the current instance.
-        ###
         initialize: (options={}) ->
+            ###
+                Initializes the plugin. Later needed dom nodes are grabbed.
+
+                **options {Object}**        - An options object.
+
+                **returns {$.Incrementer}** - Returns the current instance.
+            ###
             ###
                 **_options {Object}**
                 Saves default options for manipulating the Gui's behaviour.
@@ -127,16 +128,16 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
 
         # region event
 
-        ###
-            This method triggers if a "keydown" event occurs. This callback
-            grantees that only numeric input comes into given dom node.
-
-            **thisFunction {Function}** - this function itself
-            **event {Object}**          - the event object
-
-            **returns {$.Incrementer}** - Returns the current instance.
-        ###
         _preventOtherThanNumberInput: (thisFunction, event) ->
+            ###
+                This method triggers if a "keydown" event occurs. This callback
+                grantees that only numeric input comes into given dom node.
+
+                **thisFunction {Function}** - this function itself
+                **event {Object}**          - the event object
+
+                **returns {$.Incrementer}** - Returns the current instance.
+            ###
             # Allow only backspace, delete, left, right, minus or number.
             if $.inArray(
                 event.keyCode,
@@ -148,16 +149,16 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
                 this.fireEvent 'typeInvalidLetter', false, this, event
                 event.preventDefault()
             this
-        ###
-            This method triggeres if a "click" event on increment or decrement
-            buttons occurs.
-
-            **thisFunction {Function}** - this function itself
-            **event {Object}**          - the event object
-
-            **returns {$.Incrementer}** - Returns the current instance.
-        ###
         _onClick: (thisFunction, event) ->
+            ###
+                This method triggers if a "click" event on increment or
+                decrement buttons occurs.
+
+                **thisFunction {Function}** - this function itself
+                **event {Object}**          - the event object
+
+                **returns {$.Incrementer}** - Returns the current instance.
+            ###
             event.preventDefault()
             currentValue = window.parseInt this.$domNode.val()
             currentValue = 0 if not currentValue
@@ -176,15 +177,16 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
             else
                 this.fireEvent 'invalidNumber', false, this, event
             this
-        ###
-            This method triggers if a "change" event on given dom node occurs.
-
-            **thisFunction {Function}** - this function itself
-            **event {Object}**          - the event object
-
-            **returns {$.Incrementer}** - Returns the current instance.
-        ###
         _onChangeInput: (thisFunction, event) ->
+            ###
+                This method triggers if a "change" event on given dom node
+                occurs.
+
+                **thisFunction {Function}** - this function itself
+                **event {Object}**          - the event object
+
+                **returns {$.Incrementer}** - Returns the current instance.
+            ###
             target = $ event.target
             value = window.parseInt(target.val(target.val()
                 .replace(/[^0-9]+/g, '')).val())
@@ -195,30 +197,30 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
                 this._onInvalidNumber event, value
                 target.val this._options.min
             this
-        ###
-            This method triggers if an invalid number was given via keyboard
-            input.
-
-            **event {Object}**          - the event object
-
-            **returns {$.Incrementer}** - Returns the current instance.
-        ###
         _onTypeInvalidLetter: (event) ->
+            ###
+                This method triggers if an invalid number was given via
+                keyboard input.
+
+                **event {Object}**          - the event object
+
+                **returns {$.Incrementer}** - Returns the current instance.
+            ###
             typedCharInfo = ''
             character = String.fromCharCode event.keyCode
             if event.keyCode and character.match(/^\w| $/)
                 typedCharInfo = " (you typed \"#{character}\")"
             this.info "Please type a number#{typedCharInfo}."
-        ###
-            This method is triggered if a "change" event on given dom node
-            occurs.
-
-            **event {Object}**          - the event object
-            **value {String}**          - the invalid chars
-
-            **returns {$.Incrementer}** - Returns the current instance.
-        ###
         _onInvalidNumber: (event, value='') ->
+            ###
+                This method is triggered if a "change" event on given dom node
+                occurs.
+
+                **event {Object}**          - the event object
+                **value {String}**          - the invalid chars
+
+                **returns {$.Incrementer}** - Returns the current instance.
+            ###
             typedCharInfo = ''
             character = String.fromCharCode event.keyCode
             if value

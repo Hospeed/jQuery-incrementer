@@ -51,14 +51,14 @@ this.require [['jQuery', 'jquery-2.0.3']], ($) ->
 
 # region plugins/classes
 
-    ###
-        This plugin provides such interface logic like generic controller logic
-        for integrating plugins into $, mutual exclusion for depending gui
-        elements, logging additional string, array or function handling. A set
-        of helper functions to parse option objects dom trees or handle events
-        is also provided.
-    ###
     class Tools
+        ###
+            This plugin provides such interface logic like generic controller
+            logic for integrating plugins into $, mutual exclusion for
+            depending gui elements, logging additional string, array or
+            function handling. A set of helper functions to parse option
+            objects dom trees or handle events is also provided.
+        ###
 
     # region properties
 
@@ -99,17 +99,17 @@ this.require [['jQuery', 'jquery-2.0.3']], ($) ->
 
         # region special
 
-        ###
-            This method should be overwritten normally. It is triggered if
-            current object is created via the "new" keyword.
-
-            **returns {$.Tools}** Returns the current instance.
-        ###
         constructor: (
             @$domNode=null, @_options={}, @_defaultOptions={
                 logging: false, domNodeSelectorPrefix: 'body'
             }, @_locks={}
         ) ->
+            ###
+                This method should be overwritten normally. It is triggered if
+                current object is created via the "new" keyword.
+
+                **returns {$.Tools}** Returns the current instance.
+            ###
             # Avoid errors in browsers that lack a console.
             for method in this._consoleMethods
                 window.console = {} if not window.console?
@@ -117,24 +117,25 @@ this.require [['jQuery', 'jquery-2.0.3']], ($) ->
                 console[method] = $.noop() if not window.console[method]?
             # NOTE: A constructor doesn't return last statement by default.
             return this
-        ###
-            This method could be overwritten normally. It acts like a
-            destructor.
-
-            **returns {$.Tools}** - Returns the current instance.
-        ###
         destructor: ->
+            ###
+                This method could be overwritten normally. It acts like a
+                destructor.
+
+                **returns {$.Tools}** - Returns the current instance.
+            ###
             this.off '*'
             this
-        ###
-            This method should be overwritten normally. It is triggered if
-            current object was created via the "new" keyword and is called now.
-
-            **options {Object}**  - options An options object.
-
-            **returns {$.Tools}** - Returns the current instance.
-        ###
         initialize: (options={}) ->
+            ###
+                This method should be overwritten normally. It is triggered if
+                current object was created via the "new" keyword and is called
+                now.
+
+                **options {Object}**  - options An options object.
+
+                **returns {$.Tools}** - Returns the current instance.
+            ###
             # NOTE: We have to create a new options object instance to
             # avoid changing a static options object.
             $.extend true, this._options, this._defaultOptions, options
@@ -149,18 +150,19 @@ this.require [['jQuery', 'jquery-2.0.3']], ($) ->
 
         # region object orientation
 
-        ###
-            Defines a generic controller for $ plugins.
-
-            **object {Object|String}** - The object or class to control. If
-                                         "object" is a class an instance will
-                                         be generated.
-            **parameter {Arguments}**  - The initially given arguments object.
-
-            **returns {Mixed}**        - Returns whatever the initializer
-                                         method returns.
-        ###
         controller: (object, parameter, $domNode=null) ->
+            ###
+                Defines a generic controller for $ plugins.
+
+                **object {Object|String}** - The object or class to control. If
+                                             "object" is a class an instance
+                                             will be generated.
+                **parameter {Arguments}**  - The initially given arguments
+                                             object.
+
+                **returns {Mixed}**        - Returns whatever the initializer
+                                             method returns.
+            ###
             parameter = this.argumentsObjectToArray parameter
             if not object.__name__?
                 object = new object $domNode
@@ -187,30 +189,32 @@ this.require [['jQuery', 'jquery-2.0.3']], ($) ->
 
         # region mutual exclusion
 
-        ###
-            Calling this method introduces a starting point for a critical area
-            with potential race conditions. The area will be binded to given
-            description string. So don't use same names for different areas.
-
-            **description {String}**        - A short string describing the
-                                              critical areas properties.
-            **callbackFunction {Function}** - A procedure which should only be
-                                              executed if the interpreter isn't
-                                              in the given critical area. The
-                                              lock description string will be
-                                              given to the callback function.
-            **autoRelease {Boolean}**       - Release the lock after execution
-                                              of given callback.
-
-            **returns {$.Tools}**           - Returns the current instance.
-        ###
         acquireLock: (description, callbackFunction, autoRelease=false) ->
+            ###
+                Calling this method introduces a starting point for a critical
+                area with potential race conditions. The area will be binded to
+                given description string. So don't use same names for different
+                areas.
+
+                **description {String}**        - A short string describing the
+                                                  critical areas properties.
+                **callbackFunction {Function}** - A procedure which should only
+                                                  be executed if the
+                                                  interpreter isn't in the
+                                                  given critical area. The lock
+                                                  description string will be
+                                                  given to the callback
+                                                  function.
+                **autoRelease {Boolean}**       - Release the lock after
+                                                  execution of given callback.
+
+                **returns {$.Tools}**           - Returns the current instance.
+            ###
             ###
                 NOTE: The "window.setTimeout()" wrapper guarantees that the
                 following function will be executed without any context
-                switches in all browsers.
-                If you want to understand more about that,
-                "What are event loops?" might be a good question.
+                switches in all browsers. If you want to understand more about
+                that, "What are event loops?" might be a good question.
             ###
             wrappedCallbackFunction = (description) =>
                 callbackFunction(description)
@@ -222,17 +226,17 @@ this.require [['jQuery', 'jquery-2.0.3']], ($) ->
             else
                 this._locks[description].push wrappedCallbackFunction
             this
-        ###
-            Calling this method  causes the given critical area to be finished
-            and all functions given to "this.acquireLock()" will be executed in
-            right order.
-
-            **description {String}** - A short string describing the critical
-                                       areas properties.
-
-            **returns {$.Tools}**    - Returns the current instance.
-        ###
         releaseLock: (description) ->
+            ###
+                Calling this method  causes the given critical area to be
+                finished and all functions given to "this.acquireLock()" will
+                be executed in right order.
+
+                **description {String}** - A short string describing the
+                                           critical areas properties.
+
+                **returns {$.Tools}**    - Returns the current instance.
+            ###
             ###
                 NOTE: The "window.setTimeout()" wrapper guarantees that the
                 following function will be executed without any context
@@ -253,19 +257,19 @@ this.require [['jQuery', 'jquery-2.0.3']], ($) ->
 
         # region language fixes
 
-        ###
-            This method fixes an ugly javaScript bug. If you add a mouseout
-            event listener to a dom node the given handler will be called each
-            time any dom node inside the observed dom node triggers a mouseout
-            event. This methods guarantees that the given event handler is
-            only called if the observed dom node was leaved.
-
-            **eventHandler {Function}** - The mouse out event handler.
-
-            **returns {Function}**      - Returns the given function wrapped by
-                                          the workaround logic.
-        ###
         mouseOutEventHandlerFix: (eventHandler) ->
+            ###
+                This method fixes an ugly javaScript bug. If you add a mouseout
+                event listener to a dom node the given handler will be called
+                each time any dom node inside the observed dom node triggers a
+                mouseout event. This methods guarantees that the given event
+                handler is only called if the observed dom node was leaved.
+
+                **eventHandler {Function}** - The mouse out event handler.
+
+                **returns {Function}**      - Returns the given function
+                                              wrapped by the workaround logic.
+            ###
             self = this
             (event) ->
                 relatedTarget = event.toElement

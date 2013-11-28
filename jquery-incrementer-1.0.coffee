@@ -52,6 +52,10 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
 
 # region plugins/classes
 
+    ###
+        This plugin holds all needed methods to extend input fields to select
+        numbers very smart.
+    ###
     class Incrementer extends $.Tools.class
 
     # region properties
@@ -70,8 +74,9 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
 
         ###
             Initializes the plugin. Later needed dom nodes are grabbed.
-            `options {Object}`        - An options object.
-            `returns {$.Incrementer}` - Returns the current instance.
+
+            **options {Object}**        - An options object.
+            **returns {$.Incrementer}** - Returns the current instance.
         ###
         initialize: (options={}) ->
             ###
@@ -126,9 +131,10 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
             This method triggers if a "keydown" event occurs. This callback
             grantees that only numeric input comes into given dom node.
 
-            `thisFunction {Function}` - this function itself
-            `event {Object}`          - the event object
-            `returns {$.Incrementer}` - Returns the current instance.
+            **thisFunction {Function}** - this function itself
+            **event {Object}**          - the event object
+
+            **returns {$.Incrementer}** - Returns the current instance.
         ###
         _preventOtherThanNumberInput: (thisFunction, event) ->
             # Allow only backspace, delete, left, right, minus or number.
@@ -145,10 +151,11 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
         ###
             This method triggeres if a "click" event on increment or decrement
             buttons occurs.
-            `thisFunction {Function}` - this function itself
-            `event {Object}`          - the event object
 
-            `returns {$.Incrementer}` - Returns the current instance.
+            **thisFunction {Function}** - this function itself
+            **event {Object}**          - the event object
+
+            **returns {$.Incrementer}** - Returns the current instance.
         ###
         _onClick: (thisFunction, event) ->
             event.preventDefault()
@@ -170,10 +177,12 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
                 this.fireEvent 'invalidNumber', false, this, event
             this
         ###
-            This method triggeres if a "change" event on given dom node occurs.
-            `thisFunction {Function}` - this function itself
-            `event {Object}`          - the event object
-            `returns {$.Incrementer}` - Returns the current instance.
+            This method triggers if a "change" event on given dom node occurs.
+
+            **thisFunction {Function}** - this function itself
+            **event {Object}**          - the event object
+
+            **returns {$.Incrementer}** - Returns the current instance.
         ###
         _onChangeInput: (thisFunction, event) ->
             target = $ event.target
@@ -189,8 +198,10 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
         ###
             This method triggers if an invalid number was given via keyboard
             input.
-            `event {Object}`          - the event object
-            `returns {$.Incrementer}` - Returns the current instance.
+
+            **event {Object}**          - the event object
+
+            **returns {$.Incrementer}** - Returns the current instance.
         ###
         _onTypeInvalidLetter: (event) ->
             typedCharInfo = ''
@@ -201,9 +212,11 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
         ###
             This method is triggered if a "change" event on given dom node
             occurs.
-            `event {Object}`          - the event object
-            `value {String}`          - the invalid chars
-            `returns {$.Incrementer}` - Returns the current instance.
+
+            **event {Object}**          - the event object
+            **value {String}**          - the invalid chars
+
+            **returns {$.Incrementer}** - Returns the current instance.
         ###
         _onInvalidNumber: (event, value='') ->
             typedCharInfo = ''

@@ -38,6 +38,11 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   (function($) {
+    /*
+        This plugin holds all needed methods to extend input fields to select
+        numbers very smart.
+    */
+
     var Incrementer, _ref;
     Incrementer = (function(_super) {
       __extends(Incrementer, _super);
@@ -57,8 +62,9 @@
 
       /*
           Initializes the plugin. Later needed dom nodes are grabbed.
-          `options {Object}`        - An options object.
-          `returns {$.Incrementer}` - Returns the current instance.
+      
+          **options {Object}**        - An options object.
+          **returns {$.Incrementer}** - Returns the current instance.
       */
 
 
@@ -103,9 +109,10 @@
           This method triggers if a "keydown" event occurs. This callback
           grantees that only numeric input comes into given dom node.
       
-          `thisFunction {Function}` - this function itself
-          `event {Object}`          - the event object
-          `returns {$.Incrementer}` - Returns the current instance.
+          **thisFunction {Function}** - this function itself
+          **event {Object}**          - the event object
+      
+          **returns {$.Incrementer}** - Returns the current instance.
       */
 
 
@@ -120,10 +127,11 @@
       /*
           This method triggeres if a "click" event on increment or decrement
           buttons occurs.
-          `thisFunction {Function}` - this function itself
-          `event {Object}`          - the event object
       
-          `returns {$.Incrementer}` - Returns the current instance.
+          **thisFunction {Function}** - this function itself
+          **event {Object}**          - the event object
+      
+          **returns {$.Incrementer}** - Returns the current instance.
       */
 
 
@@ -148,10 +156,12 @@
       };
 
       /*
-          This method triggeres if a "change" event on given dom node occurs.
-          `thisFunction {Function}` - this function itself
-          `event {Object}`          - the event object
-          `returns {$.Incrementer}` - Returns the current instance.
+          This method triggers if a "change" event on given dom node occurs.
+      
+          **thisFunction {Function}** - this function itself
+          **event {Object}**          - the event object
+      
+          **returns {$.Incrementer}** - Returns the current instance.
       */
 
 
@@ -172,8 +182,10 @@
       /*
           This method triggers if an invalid number was given via keyboard
           input.
-          `event {Object}`          - the event object
-          `returns {$.Incrementer}` - Returns the current instance.
+      
+          **event {Object}**          - the event object
+      
+          **returns {$.Incrementer}** - Returns the current instance.
       */
 
 
@@ -190,9 +202,11 @@
       /*
           This method is triggered if a "change" event on given dom node
           occurs.
-          `event {Object}`          - the event object
-          `value {String}`          - the invalid chars
-          `returns {$.Incrementer}` - Returns the current instance.
+      
+          **event {Object}**          - the event object
+          **value {String}**          - the invalid chars
+      
+          **returns {$.Incrementer}** - Returns the current instance.
       */
 
 

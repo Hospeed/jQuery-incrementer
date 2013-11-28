@@ -111,6 +111,7 @@ Version
             grantees that only numeric input comes into given dom node.
         
             **thisFunction {Function}** - this function itself
+        
             **event {Object}**          - the event object
         
             **returns {$.Incrementer}** - Returns the current instance.
@@ -129,6 +130,7 @@ Version
             decrement buttons occurs.
         
             **thisFunction {Function}** - this function itself
+        
             **event {Object}**          - the event object
         
             **returns {$.Incrementer}** - Returns the current instance.
@@ -159,6 +161,7 @@ Version
             occurs.
         
             **thisFunction {Function}** - this function itself
+        
             **event {Object}**          - the event object
         
             **returns {$.Incrementer}** - Returns the current instance.
@@ -206,6 +209,7 @@ Version
             occurs.
         
             **event {Object}**          - the event object
+        
             **value {String}**          - the invalid chars
         
             **returns {$.Incrementer}** - Returns the current instance.

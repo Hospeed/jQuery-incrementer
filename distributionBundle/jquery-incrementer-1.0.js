@@ -67,9 +67,9 @@ Version
         /*
             Initializes the plugin. Later needed dom nodes are grabbed.
         
-            **options {Object}**        - An options object.
+            **options {Object}**   - An options object.
         
-            **returns {$.Incrementer}** - Returns the current instance.
+            **returns {$domNode}** - Returns $'s extended current dom node.
         */
 
         /*

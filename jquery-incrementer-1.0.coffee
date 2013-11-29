@@ -75,9 +75,9 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
             ###
                 Initializes the plugin. Later needed dom nodes are grabbed.
 
-                **options {Object}**        - An options object.
+                **options {Object}**   - An options object.
 
-                **returns {$.Incrementer}** - Returns the current instance.
+                **returns {$domNode}** - Returns $'s extended current dom node.
             ###
             ###
                 **_options {Object}**

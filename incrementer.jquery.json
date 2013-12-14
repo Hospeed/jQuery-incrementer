@@ -1,7 +1,7 @@
 {
-    "name": "tools",
-    "version": "1.0.1",
-    "title": "upgrade to object orientated rock solid plugins",
+    "name": "incrementer",
+    "version": "1.0.2",
+    "title": "Improve user experience by selecting numbers",
     "author": {
         "name": "Torben Sickert",
         "email": "t.sickert@gmail.com",
@@ -15,13 +15,13 @@
         "jquery": ">=1.10.2",
         "jquery-tools": ">=1.0"
     },
-    "description": "This module provides common reusable logic for every non trivial jQuery plugin.",
-    "keywords": ["tools", "object orientation", "don't repeat yourself", "pattern", "controller"],
-    "homepage": "http://thaibault.github.io/jQuery-tools",
-    "docs": "http://thaibault.github.io/jQuery-tools/api",
-    "demo": "http://thaibault.github.io/jQuery-tools",
-    "download": "http://thaibault.github.io/jQuery-tools/distributionBundle.zip",
-    "bugs": "https://github.com/thaibault/jQuery-tools/issues",
+    "description": "This plugin extends an html input field which serves a number to be given. Handling validation and easy incrementing or decrementing of given value is provided.",
+    "keywords": ["tools", "increment", "decrement", "form", "number", "chart"],
+    "homepage": "http://thaibault.github.io/jQuery-incrementer",
+    "docs": "http://thaibault.github.io/jQuery-incrementer/api",
+    "demo": "http://thaibault.github.io/jQuery-incrementer",
+    "download": "http://thaibault.github.io/jQuery-incrementer/distributionBundle.zip",
+    "bugs": "https://github.com/thaibault/jQuery-incrementer/issues",
     "maintainers": [{
         "name": "Torben Sickert",
         "email": "t.sickert@gmail.com",

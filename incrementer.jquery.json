@@ -1,7 +1,7 @@
 {
     "name": "incrementer",
-    "version": "1.0.2",
-    "title": "Improve user experience by selecting numbers",
+    "version": "1.0.3",
+    "title": "jQuery incrementer",
     "author": {
         "name": "Torben Sickert",
         "email": "t.sickert@gmail.com",
@@ -15,7 +15,7 @@
         "jquery": ">=1.10.2",
         "jquery-tools": ">=1.0"
     },
-    "description": "This plugin extends an html input field which serves a number to be given. Handling validation and easy incrementing or decrementing of given value is provided.",
+    "description": "Improve user experience by selecting numbers",
     "keywords": ["tools", "increment", "decrement", "form", "number", "chart"],
     "homepage": "http://thaibault.github.io/jQuery-incrementer",
     "docs": "http://thaibault.github.io/jQuery-incrementer/api",

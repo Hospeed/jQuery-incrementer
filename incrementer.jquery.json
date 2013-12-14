@@ -1,6 +1,6 @@
 {
     "name": "incrementer",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "title": "jQuery incrementer",
     "author": {
         "name": "Torben Sickert",
@@ -17,10 +17,10 @@
     },
     "description": "Improve user experience by selecting numbers",
     "keywords": ["tools", "increment", "decrement", "form", "number", "chart"],
-    "homepage": "http://thaibault.github.io/jQuery-incrementer",
-    "docs": "http://thaibault.github.io/jQuery-incrementer/api",
-    "demo": "http://thaibault.github.io/jQuery-incrementer",
-    "download": "http://thaibault.github.io/jQuery-incrementer/distributionBundle.zip",
+    "homepage": "http://thaibault.github.com/jQuery-incrementer",
+    "docs": "http://thaibault.github.com/jQuery-incrementer/api",
+    "demo": "http://thaibault.github.com/jQuery-incrementer",
+    "download": "http://thaibault.githuh.com/jQuery-incrementer/distributionBundle.zip",
     "bugs": "https://github.com/thaibault/jQuery-incrementer/issues",
     "maintainers": [{
         "name": "Torben Sickert",

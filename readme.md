@@ -16,7 +16,8 @@ License
 
 endregion -->
 
-<!--|deDE:Einsatz--><!--|frFR:Utilisier-->
+<!--|deDE:Einsatz-->
+<!--|frFR:Utilisier-->
 Use case
 --------
 
@@ -34,7 +35,8 @@ provided.
     le champ de saisie.
 -->
 
-<!--|deDE:Verwendung--><!--|frFR:Demande-->
+<!--|deDE:Verwendung-->
+<!--|frFR:Demande-->
 Usage
 -----
 

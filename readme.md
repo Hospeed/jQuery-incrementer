@@ -16,7 +16,9 @@ License
 
 endregion -->
 
-<h2>Use case<!--deDE:Einsatz--><!--frFR:Utilisier--></h2>
+<!--|deDE:Einsatz--><!--|frFR:Utilisier-->
+Use case
+--------
 
 This plugin extends an html input field which serves a number to be given.
 Handling validation and easy incrementing or decrementing of given value is
@@ -32,7 +34,9 @@ provided.
     le champ de saisie.
 -->
 
-<h3>Usage<!--deDE:Verwendung--><!--frFR:Demande--></h3>
+<!--|deDE:Verwendung--><!--|frFR:Demande-->
+Usage
+-----
 
 <!--showExample-->
 

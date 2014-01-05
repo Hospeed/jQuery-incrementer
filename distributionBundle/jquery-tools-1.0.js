@@ -150,12 +150,12 @@ Version
         }
         if (!this.self.prototype._javaScriptDependentContentHandled) {
           this.self.prototype._javaScriptDependentContentHandled = true;
-          console.log($(this._defaultOptions.domNodeSelectorPrefix + ' ' + this._defaultOptions.domNodes.hideJavaScriptEnabled).filter(function() {
+          $(this._defaultOptions.domNodeSelectorPrefix + ' ' + this._defaultOptions.domNodes.hideJavaScriptEnabled).filter(function() {
             return !$(this).data('javaScriptDependentContentHide');
-          }).data('javaScriptDependentContentHide', true).hide());
-          console.log($(this._defaultOptions.domNodeSelectorPrefix + ' ' + this._defaultOptions.domNodes.showJavaScriptEnabled).filter(function() {
+          }).data('javaScriptDependentContentHide', true).hide();
+          $(this._defaultOptions.domNodeSelectorPrefix + ' ' + this._defaultOptions.domNodes.showJavaScriptEnabled).filter(function() {
             return !$(this).data('javaScriptDependentContentShow');
-          }).data('javaScriptDependentContentShow', true).show());
+          }).data('javaScriptDependentContentShow', true).show();
         }
         return this;
       }

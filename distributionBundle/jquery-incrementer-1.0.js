@@ -6,10 +6,7 @@ This plugin extends an html input field which serves a number to be given.
 Handling validation and easy incrementing or decrementing of given value is
 provided.
 
-Copyright
----------
-
-Torben Sickert 16.12.2012
+Copyright Torben Sickert 16.12.2012
 
 License
 -------

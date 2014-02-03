@@ -1,5 +1,5 @@
 {
-    "name": "incrementer",
+    "name": "lang",
     "version": "1.0.4",
     "title": "jQuery incrementer",
     "author": {
@@ -20,7 +20,7 @@
     "homepage": "http://thaibault.github.com/jQuery-incrementer",
     "docs": "http://thaibault.github.com/jQuery-incrementer/api",
     "demo": "http://thaibault.github.com/jQuery-incrementer",
-    "download": "http://thaibault.githuh.com/jQuery-incrementer/distributionBundle.zip",
+    "download": "http://thaibault.github.com/jQuery-incrementer/distributionBundle.zip",
     "bugs": "https://github.com/thaibault/jQuery-incrementer/issues",
     "maintainers": [{
         "name": "Torben Sickert",

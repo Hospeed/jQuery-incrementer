@@ -1,6 +1,6 @@
 {
-    "name": "lang",
-    "version": "1.0.7",
+    "name": "incrementer",
+    "version": "1.0.8",
     "title": "jQuery incrementer",
     "author": {
         "name": "Torben Sickert",

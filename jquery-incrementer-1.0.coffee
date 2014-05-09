@@ -34,11 +34,11 @@ Version
 1.0 stable
 ###
 
-## standalone
-## do ($=this.jQuery) ->
+# # standalone
+# # do ($=this.jQuery) ->
 this.require.scopeIndicator = 'jQuery.fn.Incrementer'
 this.require 'jquery-tools-1.0.coffee', ($) ->
-##
+# #
 
 # endregion
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env require
+#!/usr/bin/env coffee
 # -*- coding: utf-8 -*-
 
 # region header
@@ -34,11 +34,7 @@ Version
 1.0 stable
 ###
 
-# # standalone
-# # do ($=this.jQuery) ->
-this.require.scopeIndicator = 'jQuery.fn.Incrementer'
-this.require 'jquery-tools-1.0.coffee', ($) ->
-# #
+main = ($) ->
 
 # endregion
 
@@ -96,7 +92,7 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
             if this._options.neededMarkup
                 this.$domNode.wrap(
                     $('<div>').addClass(
-                        this.camelCaseStringToDelimited this.__name__)
+                        this.stringCamelCaseToDelimited this.__name__)
                 ).after this._options.neededMarkup
             # Grab elements
             this.$domNodes = this.grabDomNode this._options.domNode
@@ -236,6 +232,16 @@ this.require 'jquery-tools-1.0.coffee', ($) ->
     $.fn.Incrementer = -> $.Tools().controller Incrementer, arguments, this
 
     # endregion
+
+# endregion
+
+# region dependencies
+
+if this.require?
+    this.require.scopeIndicator = 'jQuery.fn.Incrementer'
+    this.require 'jquery-tools-1.0.coffee', main
+else
+    main this.jQuery
 
 # endregion
 

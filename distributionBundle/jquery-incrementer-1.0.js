@@ -32,10 +32,11 @@ Version
  */
 
 (function() {
-  var __hasProp = {}.hasOwnProperty,
+  var main,
+    __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  (function($) {
+  main = function($) {
     var Incrementer;
     Incrementer = (function(_super) {
       __extends(Incrementer, _super);
@@ -91,7 +92,7 @@ Version
         };
         Incrementer.__super__.initialize.call(this, options);
         if (this._options.neededMarkup) {
-          this.$domNode.wrap($('<div>').addClass(this.camelCaseStringToDelimited(this.__name__))).after(this._options.neededMarkup);
+          this.$domNode.wrap($('<div>').addClass(this.stringCamelCaseToDelimited(this.__name__))).after(this._options.neededMarkup);
         }
         this.$domNodes = this.grabDomNode(this._options.domNode);
         this.on(this.$domNodes.plus.add(this.$domNodes.minus), 'click', this.getMethod(this._onClick));
@@ -229,6 +230,13 @@ Version
     return $.fn.Incrementer = function() {
       return $.Tools().controller(Incrementer, arguments, this);
     };
-  })(this.jQuery);
+  };
+
+  if (this.require != null) {
+    this.require.scopeIndicator = 'jQuery.fn.Incrementer';
+    this.require('jquery-tools-1.0.coffee', main);
+  } else {
+    main(this.jQuery);
+  }
 
 }).call(this);

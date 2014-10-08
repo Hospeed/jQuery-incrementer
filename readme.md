@@ -41,12 +41,6 @@ Usage
 
     #!HTML
 
-    <script type="text/javascript" src="distributionBundle/jquery-2.1.1.js"></script>
-    <script type="text/javascript" src="distributionBundle/jquery-tools-1.0.js"></script>
-    <script type="text/javascript" src="distributionBundle/jquery-incrementer-1.0.js"></script>
-    <form method="get" action="#">
-        <input type="text" name="test" value="4" class="form-control" />
-    </form>
     <style type="text/css">
         body form div.incrementer > input.form-control {
             width: 61px;
@@ -59,6 +53,11 @@ Usage
             margin: 10px;
         }
     </style>
+
+    <script type="text/javascript" src="distributionBundle/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="distributionBundle/jquery-tools-1.0.js"></script>
+    <script type="text/javascript" src="distributionBundle/jquery-incrementer-1.0.js"></script>
+
     <script type="text/javascript">
         $(function($) {
             $('body form input').Incrementer({
@@ -79,6 +78,10 @@ Usage
             });
         });
     </script>
+
+    <form method="get" action="#">
+        <input type="text" name="test" value="4" class="form-control" />
+    </form>
 
 <!-- region modline
 

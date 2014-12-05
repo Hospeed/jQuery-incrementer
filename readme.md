@@ -81,7 +81,7 @@ Usage
                     Controls the logging behavior. Set to "true" for debugging
                     scenarios.
                 */
-                logging: true,
+                logging: false,
                 /*
                     A delta value to add or subtract from current value if plus
                     or minus events are given.

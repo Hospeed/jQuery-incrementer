@@ -77,17 +77,60 @@ Version
             Saves default options for manipulating the Gui's behaviour.
          */
         this._options = {
+
+          /*
+              A dom node selector prefix to grab all dom nodes specified
+              in the dom node section of this options. This enforces you
+              to not globally select any dom nodes which aren't in the
+              expected scope of this plugin.
+           */
           domNodeSelectorPrefix: 'body form div.{1}',
+
+          /*
+              A function to call if an invalid number was given. For
+              example a number with isn't in given min/max range. The
+              function becomes an event object as first argument with
+              last given key code saved.
+           */
           onInvalidNumber: $.noop(),
+
+          /*
+              A function to call if an invalid letter like "a" was given.
+              This function becomes an event object as first argument
+              with last given key code saved.
+           */
           onTypeInvalidLetter: $.noop(),
+
+          /*
+              Controls the logging behavior. Set to "true" for debugging
+              scenarios.
+           */
           logging: false,
+
+          /*
+              A delta value to add or subtract from current value if plus
+              or minus events are given.
+           */
           step: 1,
           min: 0,
           max: 9999,
+
+          /*
+              Stores a set of needed dom nodes. Note that this selectors
+              will be prefixed with provided value in
+              "domNodeSelectorPrefix."
+           */
           domNode: {
             plus: '> a.plus',
             minus: '> a.minus'
           },
+
+          /*
+              Saves an html template to append after given template. If
+              empty the plugin assumes that you will provide needed
+              markup to find dom nodes specified in the "domNode" section
+              of this options object.
+           */
           neededMarkup: "<a href=\"#\" class=\"plus\">+</a>\n<a href=\"#\" class=\"minus\">-</a>"
         };
         Incrementer.__super__.initialize.call(this, options);

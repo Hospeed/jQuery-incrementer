@@ -88,7 +88,7 @@ Usage
                     Controls the logging behavior. Set to "true" for debugging
                     scenarios.
                 */
-                logging: false,
+                logging: true,
                 /*
                     A delta value to add or subtract from current value if plus
                     or minus events are given.
@@ -134,7 +134,7 @@ Usage
     <script type="text/javascript">
         $(function($) {
             $('body form.second-example input').Incrementer({
-                step: 2, minimum: 10, maximum: 20
+                step: 2, minimum: 10, maximum: 20, logging: true
             });
         });
     </script>

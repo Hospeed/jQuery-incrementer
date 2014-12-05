@@ -63,57 +63,57 @@ Usage
     <script type="text/javascript">
         $(function($) {
             $('body form.first-example input').Incrementer({
-                ###
+                /*
                     A dom node selector prefix to grab all dom nodes specified
                     in the dom node section of this options. This enforces you
                     to not globally select any dom nodes which aren't in the
                     expected scope of this plugin.
-                ###
+                */
                 domNodeSelectorPrefix: 'body form div.{1}',
-                ###
+                /*
                     A function to call if an invalid number was given. For
                     example a number with isn't in given min/max range. The
                     function becomes an event object as first argument with
                     last given key code saved.
-                ###
+                */
                 onInvalidNumber: $.noop(),
-                ###
+                /*
                     A function to call if an invalid letter like "a" was given.
                     This function becomes an event object as first argument
                     with last given key code saved.
-                ###
+                */
                 onTypeInvalidLetter: $.noop(),
-                ###
+                /*
                     Controls the logging behavior. Set to "true" for debugging
                     scenarios.
-                ###
+                */
                 logging: false,
-                ###
+                /*
                     A delta value to add or subtract from current value if plus
                     or minus events are given.
-                ###
+                */
                 step: 1,
-                # The smallest value to be able to type.
+                // The smallest value to be able to type.
                 min: 0,
-                # The greatest value to give to type.
+                // The greatest value to give to type.
                 max: 9999,
-                ###
+                /*
                     Stores a set of needed dom nodes. Note that this selectors
                     will be prefixed with provided value in
                     "domNodeSelectorPrefix."
-                ###
+                */
                 domNode: {
-                    # Stores a selector to grab the plus button.
+                    // Stores a selector to grab the plus button.
                     plus: '> a.plus',
-                    # Stores a selector to grab the minus button.
+                    // Stores a selector to grab the minus button.
                     minus: '> a.minus'
                 },
-                ###
+                /*
                     Saves an html template to append after given template. If
                     empty the plugin assumes that you will provide needed
                     markup to find dom nodes specified in the "domNode" section
                     of this options object.
-                ###
+                */
                 neededMarkup: '<a href="#" class="plus">+</a>' +
                               '<a href="#" class="minus">-</a>'
             });

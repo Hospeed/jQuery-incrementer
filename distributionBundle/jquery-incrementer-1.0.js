@@ -90,7 +90,8 @@ Version
               A function to call if an invalid number was given. For
               example a number with isn't in given minimum/maximum range.
               The function becomes an event object as first argument with
-              last given key code saved.
+              last given key code saved. The resulting invalid value will
+              be provided as second argument.
            */
           onInvalidNumber: $.noop(),
 
@@ -178,21 +179,27 @@ Version
         
             **returns {$.Incrementer}** - Returns the current instance.
          */
-        var currentValue, newValue, plus;
+        var currentValue, newValue, plusTriggered;
         event.preventDefault();
         currentValue = window.parseInt(this.$domNode.val());
         if (!currentValue) {
           currentValue = this._options.minimum;
         }
-        plus = event.target === this.$domNodes.plus[0] || this.$domNodes.plus.children().filter(event.target).length;
-        if (!plus && currentValue - this._options.step >= this._options.minimum || plus && currentValue < this._options.maximum) {
-          newValue = currentValue - this._options.step;
-          if (plus) {
-            newValue = currentValue + this._options.step;
+        plusTriggered = event.target === this.$domNodes.plus[0] || this.$domNodes.plus.children().filter(event.target).length;
+        if (plusTriggered) {
+          newValue = currentValue + this._options.step;
+          if (newValue <= this._options.maximum) {
+            this.$domNode.val(newValue);
+          } else {
+            this.fireEvent('invalidNumber', false, this, event, newValue);
           }
-          this.$domNode.val(newValue);
         } else {
-          this.fireEvent('invalidNumber', false, this, event);
+          newValue = currentValue - this._options.step;
+          if (newValue >= this._options.minimum) {
+            this.$domNode.val(newValue);
+          } else {
+            this.fireEvent('invalidNumber', false, this, event, newValue);
+          }
         }
         return this;
       };

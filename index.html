@@ -163,7 +163,8 @@
 77
 78
 79
-80</pre></div></td><td class=code><div class=codehilite><pre><span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+80
+81</pre></div></td><td class=code><div class=codehilite><pre><span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
     <span class="nt">body</span> <span class="nt">form</span> <span class="nt">div</span><span class="nc">.incrementer</span> <span class="o">&gt;</span> <span class="nt">input</span><span class="nc">.form-control</span> <span class="p">{</span>
         <span class="k">width</span><span class="o">:</span> <span class="m">61px</span><span class="p">;</span>
         <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
@@ -194,7 +195,8 @@
 <span class="cm">                A function to call if an invalid number was given. For</span>
 <span class="cm">                example a number with isn&#39;t in given min/max range. The</span>
 <span class="cm">                function becomes an event object as first argument with</span>
-<span class="cm">                last given key code saved.</span>
+<span class="cm">                last given key code saved. The resulting invalid value will</span>
+<span class="cm">                be provided as second argument.</span>
 <span class="cm">            */</span>
             <span class="nx">onInvalidNumber</span><span class="o">:</span> <span class="nx">$</span><span class="p">.</span><span class="nx">noop</span><span class="p">(),</span>
             <span class="cm">/*</span>

@@ -183,57 +183,57 @@
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
     <span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body form.first-example input&#39;</span><span class="p">).</span><span class="nx">Incrementer</span><span class="p">({</span>
-            <span class="err">###</span>
-                <span class="nx">A</span> <span class="nx">dom</span> <span class="nx">node</span> <span class="nx">selector</span> <span class="nx">prefix</span> <span class="nx">to</span> <span class="nx">grab</span> <span class="nx">all</span> <span class="nx">dom</span> <span class="nx">nodes</span> <span class="nx">specified</span>
-                <span class="k">in</span> <span class="nx">the</span> <span class="nx">dom</span> <span class="nx">node</span> <span class="nx">section</span> <span class="nx">of</span> <span class="k">this</span> <span class="nx">options</span><span class="p">.</span> <span class="nx">This</span> <span class="nx">enforces</span> <span class="nx">you</span>
-                <span class="nx">to</span> <span class="nx">not</span> <span class="nx">globally</span> <span class="nx">select</span> <span class="nx">any</span> <span class="nx">dom</span> <span class="nx">nodes</span> <span class="nx">which</span> <span class="nx">aren</span><span class="s1">&#39;t in the</span>
-<span class="s1">                expected scope of this plugin.</span>
-<span class="s1">            ###</span>
-<span class="s1">            domNodeSelectorPrefix: &#39;</span><span class="nx">body</span> <span class="nx">form</span> <span class="nx">div</span><span class="p">.{</span><span class="mi">1</span><span class="p">}</span><span class="s1">&#39;,</span>
-<span class="s1">            ###</span>
-<span class="s1">                A function to call if an invalid number was given. For</span>
-<span class="s1">                example a number with isn&#39;</span><span class="nx">t</span> <span class="k">in</span> <span class="nx">given</span> <span class="nx">min</span><span class="o">/</span><span class="nx">max</span> <span class="nx">range</span><span class="p">.</span> <span class="nx">The</span>
-                <span class="kd">function</span> <span class="nx">becomes</span> <span class="nx">an</span> <span class="nx">event</span> <span class="nx">object</span> <span class="nx">as</span> <span class="nx">first</span> <span class="nx">argument</span> <span class="kd">with</span>
-                <span class="nx">last</span> <span class="nx">given</span> <span class="nx">key</span> <span class="nx">code</span> <span class="nx">saved</span><span class="p">.</span>
-            <span class="err">###</span>
+            <span class="cm">/*</span>
+<span class="cm">                A dom node selector prefix to grab all dom nodes specified</span>
+<span class="cm">                in the dom node section of this options. This enforces you</span>
+<span class="cm">                to not globally select any dom nodes which aren&#39;t in the</span>
+<span class="cm">                expected scope of this plugin.</span>
+<span class="cm">            */</span>
+            <span class="nx">domNodeSelectorPrefix</span><span class="o">:</span> <span class="s1">&#39;body form div.{1}&#39;</span><span class="p">,</span>
+            <span class="cm">/*</span>
+<span class="cm">                A function to call if an invalid number was given. For</span>
+<span class="cm">                example a number with isn&#39;t in given min/max range. The</span>
+<span class="cm">                function becomes an event object as first argument with</span>
+<span class="cm">                last given key code saved.</span>
+<span class="cm">            */</span>
             <span class="nx">onInvalidNumber</span><span class="o">:</span> <span class="nx">$</span><span class="p">.</span><span class="nx">noop</span><span class="p">(),</span>
-            <span class="err">###</span>
-                <span class="nx">A</span> <span class="kd">function</span> <span class="nx">to</span> <span class="nx">call</span> <span class="k">if</span> <span class="nx">an</span> <span class="nx">invalid</span> <span class="nx">letter</span> <span class="nx">like</span> <span class="s2">&quot;a&quot;</span> <span class="nx">was</span> <span class="nx">given</span><span class="p">.</span>
-                <span class="nx">This</span> <span class="kd">function</span> <span class="nx">becomes</span> <span class="nx">an</span> <span class="nx">event</span> <span class="nx">object</span> <span class="nx">as</span> <span class="nx">first</span> <span class="nx">argument</span>
-                <span class="kd">with</span> <span class="nx">last</span> <span class="nx">given</span> <span class="nx">key</span> <span class="nx">code</span> <span class="nx">saved</span><span class="p">.</span>
-            <span class="err">###</span>
+            <span class="cm">/*</span>
+<span class="cm">                A function to call if an invalid letter like &quot;a&quot; was given.</span>
+<span class="cm">                This function becomes an event object as first argument</span>
+<span class="cm">                with last given key code saved.</span>
+<span class="cm">            */</span>
             <span class="nx">onTypeInvalidLetter</span><span class="o">:</span> <span class="nx">$</span><span class="p">.</span><span class="nx">noop</span><span class="p">(),</span>
-            <span class="err">###</span>
-                <span class="nx">Controls</span> <span class="nx">the</span> <span class="nx">logging</span> <span class="nx">behavior</span><span class="p">.</span> <span class="nx">Set</span> <span class="nx">to</span> <span class="s2">&quot;true&quot;</span> <span class="k">for</span> <span class="nx">debugging</span>
-                <span class="nx">scenarios</span><span class="p">.</span>
-            <span class="err">###</span>
+            <span class="cm">/*</span>
+<span class="cm">                Controls the logging behavior. Set to &quot;true&quot; for debugging</span>
+<span class="cm">                scenarios.</span>
+<span class="cm">            */</span>
             <span class="nx">logging</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="err">###</span>
-                <span class="nx">A</span> <span class="nx">delta</span> <span class="nx">value</span> <span class="nx">to</span> <span class="nx">add</span> <span class="nx">or</span> <span class="nx">subtract</span> <span class="nx">from</span> <span class="nx">current</span> <span class="nx">value</span> <span class="k">if</span> <span class="nx">plus</span>
-                <span class="nx">or</span> <span class="nx">minus</span> <span class="nx">events</span> <span class="nx">are</span> <span class="nx">given</span><span class="p">.</span>
-            <span class="err">###</span>
+            <span class="cm">/*</span>
+<span class="cm">                A delta value to add or subtract from current value if plus</span>
+<span class="cm">                or minus events are given.</span>
+<span class="cm">            */</span>
             <span class="nx">step</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="err">#</span> <span class="nx">The</span> <span class="nx">smallest</span> <span class="nx">value</span> <span class="nx">to</span> <span class="nx">be</span> <span class="nx">able</span> <span class="nx">to</span> <span class="nx">type</span><span class="p">.</span>
+            <span class="c1">// The smallest value to be able to type.</span>
             <span class="nx">min</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="err">#</span> <span class="nx">The</span> <span class="nx">greatest</span> <span class="nx">value</span> <span class="nx">to</span> <span class="nx">give</span> <span class="nx">to</span> <span class="nx">type</span><span class="p">.</span>
+            <span class="c1">// The greatest value to give to type.</span>
             <span class="nx">max</span><span class="o">:</span> <span class="mi">9999</span><span class="p">,</span>
-            <span class="err">###</span>
-                <span class="nx">Stores</span> <span class="nx">a</span> <span class="nx">set</span> <span class="nx">of</span> <span class="nx">needed</span> <span class="nx">dom</span> <span class="nx">nodes</span><span class="p">.</span> <span class="nx">Note</span> <span class="nx">that</span> <span class="k">this</span> <span class="nx">selectors</span>
-                <span class="nx">will</span> <span class="nx">be</span> <span class="nx">prefixed</span> <span class="kd">with</span> <span class="nx">provided</span> <span class="nx">value</span> <span class="k">in</span>
-                <span class="s2">&quot;domNodeSelectorPrefix.&quot;</span>
-            <span class="err">###</span>
+            <span class="cm">/*</span>
+<span class="cm">                Stores a set of needed dom nodes. Note that this selectors</span>
+<span class="cm">                will be prefixed with provided value in</span>
+<span class="cm">                &quot;domNodeSelectorPrefix.&quot;</span>
+<span class="cm">            */</span>
             <span class="nx">domNode</span><span class="o">:</span> <span class="p">{</span>
-                <span class="err">#</span> <span class="nx">Stores</span> <span class="nx">a</span> <span class="nx">selector</span> <span class="nx">to</span> <span class="nx">grab</span> <span class="nx">the</span> <span class="nx">plus</span> <span class="nx">button</span><span class="p">.</span>
+                <span class="c1">// Stores a selector to grab the plus button.</span>
                 <span class="nx">plus</span><span class="o">:</span> <span class="s1">&#39;&gt; a.plus&#39;</span><span class="p">,</span>
-                <span class="err">#</span> <span class="nx">Stores</span> <span class="nx">a</span> <span class="nx">selector</span> <span class="nx">to</span> <span class="nx">grab</span> <span class="nx">the</span> <span class="nx">minus</span> <span class="nx">button</span><span class="p">.</span>
+                <span class="c1">// Stores a selector to grab the minus button.</span>
                 <span class="nx">minus</span><span class="o">:</span> <span class="s1">&#39;&gt; a.minus&#39;</span>
             <span class="p">},</span>
-            <span class="err">###</span>
-                <span class="nx">Saves</span> <span class="nx">an</span> <span class="nx">html</span> <span class="nx">template</span> <span class="nx">to</span> <span class="nx">append</span> <span class="nx">after</span> <span class="nx">given</span> <span class="nx">template</span><span class="p">.</span> <span class="nx">If</span>
-                <span class="nx">empty</span> <span class="nx">the</span> <span class="nx">plugin</span> <span class="nx">assumes</span> <span class="nx">that</span> <span class="nx">you</span> <span class="nx">will</span> <span class="nx">provide</span> <span class="nx">needed</span>
-                <span class="nx">markup</span> <span class="nx">to</span> <span class="nx">find</span> <span class="nx">dom</span> <span class="nx">nodes</span> <span class="nx">specified</span> <span class="k">in</span> <span class="nx">the</span> <span class="s2">&quot;domNode&quot;</span> <span class="nx">section</span>
-                <span class="nx">of</span> <span class="k">this</span> <span class="nx">options</span> <span class="nx">object</span><span class="p">.</span>
-            <span class="err">###</span>
+            <span class="cm">/*</span>
+<span class="cm">                Saves an html template to append after given template. If</span>
+<span class="cm">                empty the plugin assumes that you will provide needed</span>
+<span class="cm">                markup to find dom nodes specified in the &quot;domNode&quot; section</span>
+<span class="cm">                of this options object.</span>
+<span class="cm">            */</span>
             <span class="nx">neededMarkup</span><span class="o">:</span> <span class="s1">&#39;&lt;a href=&quot;#&quot; class=&quot;plus&quot;&gt;+&lt;/a&gt;&#39;</span> <span class="o">+</span>
                           <span class="s1">&#39;&lt;a href=&quot;#&quot; class=&quot;minus&quot;&gt;-&lt;/a&gt;&#39;</span>
         <span class="p">});</span>

@@ -79,17 +79,6 @@ Version
         this._options = {
 
           /*
-              A dom node selector prefix to grab all dom nodes specified
-              in the dom node section of this options. This enforces you
-              to not globally select any dom nodes which aren't in the
-              expected scope of this plugin. "{1}" will be automatically
-              replaced with this plugin name suffix ("incrementer").
-              You don't have to use "{1}" but it can help you to write
-              code which is more reconcilable with the dry concept.
-           */
-          domNodeSelectorPrefix: 'body form div.{1}',
-
-          /*
               A function to call if an invalid number was given. For
               example a number with isn't in given minimum/maximum range.
               The function becomes an event object as first argument with
@@ -141,8 +130,6 @@ Version
         if (this._options.neededMarkup) {
           this.$domNode.wrap($('<div>').addClass(this.stringCamelCaseToDelimited(this.__name__))).after(this._options.neededMarkup);
         }
-        console.log(this._options.domNode);
-        console.log(this.grabDomNode(this._options.domNode));
         this.$domNodes = this.grabDomNode(this._options.domNode);
         this.on(this.$domNodes.plus.add(this.$domNodes.minus), 'click', this.getMethod(this._onClick));
         this.on(this.$domNode, {

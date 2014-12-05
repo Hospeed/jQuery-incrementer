@@ -94,7 +94,7 @@ Usage
                 /*
                     Stores a set of needed dom nodes. Note that this selectors
                     will be prefixed with provided value in
-                    "domNodeSelectorPrefix."
+                    "domNodeSelectorPrefix" of the jQuery tools plugin.
                 */
                 domNode: {
                     // Stores a selector to grab the plus button.

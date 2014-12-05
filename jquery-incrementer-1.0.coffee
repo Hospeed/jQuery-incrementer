@@ -102,9 +102,7 @@ main = ($) ->
                 # The greatest value to give to type.
                 maximum: 9999
                 ###
-                    Stores a set of needed dom nodes. Note that this selectors
-                    will be prefixed with provided value in
-                    "domNodeSelectorPrefix" of the jQuery tools plugin.
+                    Stores a set of selectors for retrieving needed dom nodes.
                 ###
                 domNode:
                     # Stores a selector to grab the plus button.
@@ -124,12 +122,12 @@ main = ($) ->
             super options
             # Generate needed html.
             if this._options.neededMarkup
-                this.$domNode.wrap(
-                    $('<div>').addClass(
-                        this.stringCamelCaseToDelimited this.__name__)
-                ).after this._options.neededMarkup
+                this.$domNode.wrap($('<div>').addClass(
+                    this.stringCamelCaseToDelimited this.__name__
+                )).after this._options.neededMarkup
             # Grab elements
-            this.$domNodes = this.grabDomNode this._options.domNode
+            this.$domNodes = this.grabDomNode(
+                this._options.domNode, this.$domNode.parent())
             # Attach events
             this.on(
                 this.$domNodes.plus.add(this.$domNodes.minus), 'click'

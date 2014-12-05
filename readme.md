@@ -94,9 +94,9 @@ Usage
                 */
                 step: 1,
                 // The smallest value to be able to type.
-                min: 0,
+                minimum: 0,
                 // The greatest value to give to type.
-                max: 9999,
+                maximum: 9999,
                 /*
                     Stores a set of needed dom nodes. Note that this selectors
                     will be prefixed with provided value in
@@ -133,7 +133,7 @@ Usage
     <script type="text/javascript">
         $(function($) {
             $('body form.second-example input').Incrementer({
-                step: 2, min: 10, max: 20
+                step: 2, minimum: 10, maximum: 20
             });
         });
     </script>

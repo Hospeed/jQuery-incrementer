@@ -141,8 +141,9 @@ Version
         if (this._options.neededMarkup) {
           this.$domNode.wrap($('<div>').addClass(this.stringCamelCaseToDelimited(this.__name__))).after(this._options.neededMarkup);
         }
+        console.log(this._options.domNode);
+        console.log(this.grabDomNode(this._options.domNode));
         this.$domNodes = this.grabDomNode(this._options.domNode);
-        console.log(this.$domNodes.plus.add(this.$domNodes.minus));
         this.on(this.$domNodes.plus.add(this.$domNodes.minus), 'click', this.getMethod(this._onClick));
         this.on(this.$domNode, {
           keydown: this.getMethod(this._preventOtherThanNumberInput),

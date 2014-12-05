@@ -142,6 +142,7 @@ Version
           this.$domNode.wrap($('<div>').addClass(this.stringCamelCaseToDelimited(this.__name__))).after(this._options.neededMarkup);
         }
         this.$domNodes = this.grabDomNode(this._options.domNode);
+        console.log(this.$domNodes.plus.add(this.$domNodes.minus));
         this.on(this.$domNodes.plus.add(this.$domNodes.minus), 'click', this.getMethod(this._onClick));
         this.on(this.$domNode, {
           keydown: this.getMethod(this._preventOtherThanNumberInput),
@@ -184,7 +185,6 @@ Version
          */
         var currentValue, newValue, plusTriggered;
         event.preventDefault();
-        console.log(this.$domNode);
         currentValue = window.parseInt(this.$domNode.val());
         if (!currentValue) {
           currentValue = this._options.minimum;

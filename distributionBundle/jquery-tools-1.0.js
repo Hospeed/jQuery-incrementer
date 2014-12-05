@@ -593,7 +593,7 @@ Version
               if (match) {
                 $.each(value.split(match[0]), function(key, valuePart) {
                   if (key) {
-                    return value += ", " + _this._grabDomNodeHelper(key, valuePart, domNodeSelectors);
+                    return value += ', ' + _this._grabDomNodeHelper(key, valuePart, domNodeSelectors);
                   } else {
                     return value = valuePart;
                   }
@@ -1072,6 +1072,7 @@ Version
         }
         if (!(this.stringStartsWith(selector, domNodeSelectorPrefix) || this.stringStartsWith($.trim(selector), '<'))) {
           domNodeSelectors[key] = domNodeSelectorPrefix + selector;
+          console.log(domNodeSelectors[key]);
           return $.trim(domNodeSelectors[key]);
         }
         return $.trim(selector);

@@ -104,7 +104,7 @@ Usage
                 ###
                 domNode: {
                     # Stores a selector to grab the plus button.
-                    plus: '> a.plus'
+                    plus: '> a.plus',
                     # Stores a selector to grab the minus button.
                     minus: '> a.minus'
                 },

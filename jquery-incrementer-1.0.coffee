@@ -139,9 +139,10 @@ main = ($) ->
                         this.stringCamelCaseToDelimited this.__name__)
                 ).after this._options.neededMarkup
             # Grab elements
+            console.log this._options.domNode
+            console.log this.grabDomNode this._options.domNode
             this.$domNodes = this.grabDomNode this._options.domNode
             # Attach events
-            console.log this.$domNodes.plus.add(this.$domNodes.minus)
             this.on(
                 this.$domNodes.plus.add(this.$domNodes.minus), 'click'
                 this.getMethod this._onClick)

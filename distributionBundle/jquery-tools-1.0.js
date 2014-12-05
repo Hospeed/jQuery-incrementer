@@ -593,7 +593,7 @@ Version
           if (wrapperDomNode != null) {
             wrapperDomNode = $(wrapperDomNode);
             $.each(domNodeSelectors, function(key, value) {
-              return domNode[key] = wrapperDomNode.find(value);
+              return domNodes[key] = wrapperDomNode.find(value);
             });
           } else {
             $.each(domNodeSelectors, (function(_this) {

@@ -128,7 +128,7 @@ Usage
                 step: 2, minimum: 10, maximum: 20, logging: true
             });
             $('body form.second-example input.second').Incrementer({
-                step: 2, minimum: 10, maximum: 20, logging: true
+                step: 3, minimum: 5, maximum: 30, logging: true
             });
         });
     </script>

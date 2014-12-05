@@ -88,8 +88,8 @@ Version
 
           /*
               A function to call if an invalid number was given. For
-              example a number with isn't in given min/max range. The
-              function becomes an event object as first argument with
+              example a number with isn't in given minimum/maximum range.
+              The function becomes an event object as first argument with
               last given key code saved.
            */
           onInvalidNumber: $.noop(),
@@ -112,8 +112,8 @@ Version
               or minus events are given.
            */
           step: 1,
-          min: 0,
-          max: 9999,
+          minimum: 0,
+          maximum: 9999,
 
           /*
               Stores a set of needed dom nodes. Note that this selectors
@@ -182,10 +182,10 @@ Version
         event.preventDefault();
         currentValue = window.parseInt(this.$domNode.val());
         if (!currentValue) {
-          currentValue = 0;
+          currentValue = this._options.minimum;
         }
         plus = event.target === this.$domNodes.plus[0] || this.$domNodes.plus.children().filter(event.target).length;
-        if (!plus && currentValue - this._options.step >= this._options.min || plus && currentValue < this._options.max) {
+        if (!plus && currentValue - this._options.step >= this._options.minimum || plus && currentValue < this._options.maximum) {
           newValue = currentValue - this._options.step;
           if (plus) {
             newValue = currentValue + this._options.step;
@@ -212,12 +212,12 @@ Version
         var target, value;
         target = $(event.target);
         value = window.parseInt(target.val(target.val().replace(/[^0-9]+/g, '')).val());
-        if (value > this._options.max) {
+        if (value > this._options.maximum) {
           this._onInvalidNumber(event, value);
-          target.val(this._options.max);
-        } else if (value < this._options.min) {
+          target.val(this._options.maximum);
+        } else if (value < this._options.minimum) {
           this._onInvalidNumber(event, value);
-          target.val(this._options.min);
+          target.val(this._options.minimum);
         }
         return this;
       };
@@ -264,7 +264,7 @@ Version
         } else if (event.keyCode && character.match(/^\w| $/)) {
           typedCharInfo = " (you typed \"" + character + "\")";
         }
-        return this.info(("Please type a number between \"" + this._options.min + "\" and ") + ("\"" + this._options.max + "\"" + typedCharInfo + "."));
+        return this.info(("Please type a number between \"" + this._options.minimum + "\" ") + ("and \"" + this._options.maximum + "\"" + typedCharInfo + "."));
       };
 
       return Incrementer;

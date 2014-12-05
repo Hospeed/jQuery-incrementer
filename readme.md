@@ -114,14 +114,13 @@ Usage
                     markup to find dom nodes specified in the "domNode" section
                     of this options object.
                 ###
-                neededMarkup: ‘<a href="#" class="plus">+</a>’ +
-                              ‘<a href="#" class="minus">-</a>’
+                neededMarkup: '<a href="#" class="plus">+</a>' +
+                              '<a href="#" class="minus">-</a>'
             });
         });
     </script>
 
-    <form class=.first-example” method="get" action="#">
-        <input type="text" name="test" value="4" class="form-control" />
+    <form class="first-example" method="get" action="#">
         <input type="text" name="test" value="4" class="form-control" />
     </form>
 
@@ -138,8 +137,7 @@ Usage
             });
         });
     </script>
-    <form class=”second-example” method="get" action="#">
-        <input type="text" name="test" value="4" class="form-control" />
+    <form class="second-example" method="get" action="#">
         <input type="text" name="test" value="4" class="form-control" />
     </form>
 

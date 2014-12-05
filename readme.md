@@ -74,7 +74,8 @@ Usage
                     A function to call if an invalid number was given. For
                     example a number with isn't in given min/max range. The
                     function becomes an event object as first argument with
-                    last given key code saved.
+                    last given key code saved. The resulting invalid value will
+                    be provided as second argument.
                 */
                 onInvalidNumber: $.noop(),
                 /*

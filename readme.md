@@ -124,14 +124,17 @@ Usage
 
     <script type="text/javascript">
         $(function($) {
-            $('body form.second-example input').Incrementer({
+            $('body form.second-example input.first').Incrementer({
+                step: 2, minimum: 10, maximum: 20, logging: true
+            });
+            $('body form.second-example input.second').Incrementer({
                 step: 2, minimum: 10, maximum: 20, logging: true
             });
         });
     </script>
     <form class="second-example" method="get" action="#">
-        <input type="text" name="test" value="10" class="form-control" />
-        <input type="text" name="test" value="12" class="form-control" />
+        <input type="text" name="test" value="10" class="form-control first" />
+        <input type="text" name="test" value="12" class="form-control second" />
     </form>
 
 <!-- region modline

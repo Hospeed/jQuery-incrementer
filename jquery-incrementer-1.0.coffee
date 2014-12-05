@@ -82,8 +82,8 @@ main = ($) ->
                 domNodeSelectorPrefix: 'body form div.{1}'
                 ###
                     A function to call if an invalid number was given. For
-                    example a number with isn't in given min/max range. The
-                    function becomes an event object as first argument with
+                    example a number with isn't in given minimum/maximum range.
+                    The function becomes an event object as first argument with
                     last given key code saved.
                 ###
                 onInvalidNumber: $.noop()
@@ -104,9 +104,9 @@ main = ($) ->
                 ###
                 step: 1
                 # The smallest value to be able to type.
-                min: 0
+                minimum: 0
                 # The greatest value to give to type.
-                max: 9999
+                maximum: 9999
                 ###
                     Stores a set of needed dom nodes. Note that this selectors
                     will be prefixed with provided value in
@@ -191,15 +191,15 @@ main = ($) ->
             ###
             event.preventDefault()
             currentValue = window.parseInt this.$domNode.val()
-            currentValue = 0 if not currentValue
+            currentValue = this._options.minimum if not currentValue
             plus = (
                 event.target is this.$domNodes.plus[0] or
                 this.$domNodes.plus.children().filter(
                     event.target
                 ).length)
             if (not plus and
-                currentValue - this._options.step >= this._options.min or
-                plus and currentValue < this._options.max
+                currentValue - this._options.step >= this._options.minimum or
+                plus and currentValue < this._options.maximum
             )
                 newValue = currentValue - this._options.step
                 newValue = currentValue + this._options.step if plus
@@ -221,12 +221,12 @@ main = ($) ->
             target = $ event.target
             value = window.parseInt(target.val(target.val()
                 .replace(/[^0-9]+/g, '')).val())
-            if value > this._options.max
+            if value > this._options.maximum
                 this._onInvalidNumber event, value
-                target.val this._options.max
-            else if value < this._options.min
+                target.val this._options.maximum
+            else if value < this._options.minimum
                 this._onInvalidNumber event, value
-                target.val this._options.min
+                target.val this._options.minimum
             this
         _onTypeInvalidLetter: (event) ->
             ###
@@ -260,8 +260,8 @@ main = ($) ->
             else if event.keyCode and character.match(/^\w| $/)
                 typedCharInfo = " (you typed \"#{character}\")"
             this.info(
-                "Please type a number between \"#{this._options.min}\" and " +
-                "\"#{this._options.max}\"#{typedCharInfo}.")
+                "Please type a number between \"#{this._options.minimum}\" " +
+                "and \"#{this._options.maximum}\"#{typedCharInfo}.")
 
         # endregion
 

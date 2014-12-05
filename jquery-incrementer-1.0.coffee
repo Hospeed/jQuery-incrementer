@@ -141,8 +141,9 @@ main = ($) ->
             # Grab elements
             this.$domNodes = this.grabDomNode this._options.domNode
             # Attach events
+            console.log this.$domNodes.plus.add(this.$domNodes.minus)
             this.on(
-                this.$domNodes.plus.add(this.$domNodes.minus), 'click',
+                this.$domNodes.plus.add(this.$domNodes.minus), 'click'
                 this.getMethod this._onClick)
             # Prevent number field from typing symbols other than numbers.
             this.on(
@@ -194,7 +195,6 @@ main = ($) ->
                 **returns {$.Incrementer}** - Returns the current instance.
             ###
             event.preventDefault()
-            console.log this.$domNode
             currentValue = window.parseInt this.$domNode.val()
             currentValue = this._options.minimum if not currentValue
             plusTriggered = (

@@ -77,7 +77,10 @@ main = ($) ->
                     A dom node selector prefix to grab all dom nodes specified
                     in the dom node section of this options. This enforces you
                     to not globally select any dom nodes which aren't in the
-                    expected scope of this plugin.
+                    expected scope of this plugin. "{1}" will be automatically
+                    replaced with this plugin name suffix ("incrementer").
+                    You don't have to use "{1}" but it can help you to write
+                    code which is more reconcilable with the dry concept.
                 ###
                 domNodeSelectorPrefix: 'body form div.{1}'
                 ###
@@ -191,6 +194,7 @@ main = ($) ->
                 **returns {$.Incrementer}** - Returns the current instance.
             ###
             event.preventDefault()
+            console.log this.$domNode
             currentValue = window.parseInt this.$domNode.val()
             currentValue = this._options.minimum if not currentValue
             plusTriggered = (

@@ -138,7 +138,7 @@ Usage
         });
     </script>
     <form class="second-example" method="get" action="#">
-        <input type="text" name="test" value="4" class="form-control" />
+        <input type="text" name="test" value="10" class="form-control" />
     </form>
 
 <!-- region modline

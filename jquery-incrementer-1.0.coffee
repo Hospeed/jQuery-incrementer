@@ -276,7 +276,7 @@ main = ($) ->
 
 if this.require?
     this.require.scopeIndicator = 'jQuery.fn.Incrementer'
-    this.require 'jquery-tools-1.0.coffee', main
+    this.require [['jQuery.Tools', 'jquery-tools-1.0.coffee']], main
 else
     main this.jQuery
 
